@@ -1,0 +1,63 @@
+query getApplication($id: ID!) {
+  app: application(id: $id) {
+    ...ApplicationInfo
+    rootRoute {
+      ...RouteParts
+    }
+    loginRoute {
+      ...RouteParts
+    }
+    layoutRoute {
+      ...RouteParts
+    }
+    routes {
+      ...RouteParts
+    }
+  }
+}
+query getRoute($id: ID!) {
+  route(id: $id) {
+    ...RouteParts
+  }
+}
+subscription subscibeUpdateRoute {
+  updateRoute {
+    id
+    name
+    component {
+      id
+      template
+      props
+    }
+  }
+}
+fragment ApplicationInfo on Application {
+  id
+  name
+  description
+  enabled
+  logo
+}
+fragment RouteParts on Route {
+  id
+  name
+  path
+  type
+  authorized
+  authority
+  hideInMenu
+  hideChildrenInMenu
+  hideInBreadcrumb
+  redirect
+  component {
+    id
+    template
+  }
+  icon
+  index
+  enabled
+  parent {
+    id
+    path
+  }
+}

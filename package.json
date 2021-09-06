@@ -1,0 +1,71 @@
+{
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "start:example": "cross-env APP_ROOT=example umi dev",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "peerDependencies": {
+    "react": ">=16"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "asany-chaos",
+  "author": "李茂峰",
+  "module": "dist/asany-chaos.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/asany-chaos.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/asany-chaos.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "^5.0.3",
+    "@types/lodash-es": "^4.17.4",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "cross-env": "^7.0.3",
+    "husky": "^7.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "size-limit": "^5.0.3",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.2",
+    "umi": "^3.5.17"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0"
+  }
+}
