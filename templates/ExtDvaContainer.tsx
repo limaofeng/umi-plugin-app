@@ -1,7 +1,8 @@
 // import { EnvironmentManager } from '@asany/components';
+import React from 'react';
+
 import { ConfigProvider } from 'antd';
 import zhCN from 'antd/es/locale/zh_CN';
-import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { PersistGate } from 'redux-persist/integration/react';

@@ -34,7 +34,7 @@ let currentApplication: any;
 
 export const setCurrentApplication = (app: any) => {
   currentApplication = app;
-}
+};
 
 interface GlobalModelType {
   namespace: 'global';
@@ -51,18 +51,18 @@ const GlobalModel: GlobalModelType = {
   namespace: 'global',
   state: {
     application: undefined,
-    organization: undefined
+    organization: undefined,
   },
   reducers: {
     saveCurrentApplication(state: any, { payload: app }: any) {
       return { ...state, application: app, organization: app.organization };
-    }
+    },
   },
   subscriptions: {
-    async setup({ dispatch }: { dispatch: Dispatch; }) {
+    async setup({ dispatch }: { dispatch: Dispatch }) {
       dispatch({ type: 'saveCurrentApplication', payload: currentApplication });
-    }
-  }
+    },
+  },
 };
 
 export default GlobalModel;

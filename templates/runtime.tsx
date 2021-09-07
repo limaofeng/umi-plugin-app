@@ -1,18 +1,20 @@
-import { merge } from 'lodash';
 import React from 'react';
+
+import { merge } from 'lodash';
 import { createLogger } from 'redux-logger';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
+import { AppManager } from '@asany/umi-plugin-app';
 
 import { client } from '../apollo';
+
 import ExtDvaContainer from './ExtDvaContainer';
 import {
   getApplication as GET_APPLICATION,
-  subscibeUpdateRoute as SUBSCIBE_UPDATEROUTE,
   getRoute as GET_ROUTE,
+  subscibeUpdateRoute as SUBSCIBE_UPDATEROUTE,
 } from './gql/application.gql';
 import { setCurrentApplication } from './models/global';
-import { AppManager } from '@asany/umi-plugin-app';
 
 const logging = process.env.NODE_ENV === 'development';
 
