@@ -172,7 +172,7 @@ const AuthModel: AuthModelType = {
         // 获取用户
         yield put({ type: 'loadCurrentUser' });
         // 登录后跳转
-        yield take("changeLoginStatus");
+        yield take('changeLoginStatus');
         yield put({ type: 'redirect' });
       } catch (e) {
         console.error(e);
@@ -210,9 +210,11 @@ const AuthModel: AuthModelType = {
     *redirect(_: any, { put }: any) {
       const urlParams = new URL(window.location.href);
       const params = getPageQuery();
-      let { redirect = window.location.origin } = params as any || {};
+      let { redirect = window.location.origin } = (params as any) || {};
       if (redirect) {
-        const redirectUrlParams = new URL(redirect.startsWith(window.location.origin) ? redirect : window.location.origin + redirect);
+        const redirectUrlParams = new URL(
+          redirect.startsWith(window.location.origin) ? redirect : window.location.origin + redirect
+        );
         if (redirectUrlParams.origin === urlParams.origin) {
           redirect = redirect.substr(urlParams.origin.length);
           if (redirect.match(/^\/.*#/)) {
@@ -227,7 +229,7 @@ const AuthModel: AuthModelType = {
     },
     *watchToken(_: any, { take, select }: any) {
       while (true) {
-        yield take("saveCredential");
+        yield take('saveCredential');
         const credential = yield select((state: any) => state.auth.credential);
         if (credential) {
           tokenHelper.setToken(credential.token);
@@ -235,7 +237,7 @@ const AuthModel: AuthModelType = {
           tokenHelper.resetToken();
         }
       }
-    }
+    },
   },
 
   reducers: {
@@ -257,18 +259,17 @@ const AuthModel: AuthModelType = {
         default:
           return { ...state, status };
       }
-    }
+    },
   },
-},
   subscriptions: {
     async setup({ dispatch, history }) {
       dispatch({ type: 'watchToken' });
-dispatch({ type: 'logonWithLocalStorage' });
-history.listen(({ pathname, search }): void => {
-  if (pathname === '/logout') {
-    dispatch({ type: 'logout' });
-  }
-});
+      dispatch({ type: 'logonWithLocalStorage' });
+      history.listen(({ pathname, search }): void => {
+        if (pathname === '/logout') {
+          dispatch({ type: 'logout' });
+        }
+      });
     },
   },
 };
