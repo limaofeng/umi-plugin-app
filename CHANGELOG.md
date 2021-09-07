@@ -1,3 +1,12 @@
+## [0.1.11](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.10...v0.1.11) (2021-09-07)
+
+
+### Features
+
+* 删除 Authorized ，使用 @umijs/plugin-access 方式取代 ([ade464b](https://github.com/limaofeng/umi-plugin-app/commit/ade464b3aaf3145e64ae151c4445aeba373d69f0))
+
+
+
 ## [0.1.10](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.9...v0.1.10) (2021-09-07)
 
 
