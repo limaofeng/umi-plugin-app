@@ -5,7 +5,6 @@ import { Effect, Reducer, Subscription } from 'umi';
 import { client } from '../../apollo';
 import tokenHelper from '../../apollo/TokenHelper';
 import { viewer as LOAD_CURRENTUSER } from '../gql/auth.gql';
-// import { reloadAuthorized } from '@asany/components';
 
 export function getPageQuery() {
   return parse(window.location.href.split('?')[1]);
@@ -250,29 +249,26 @@ const AuthModel: AuthModelType = {
     },
     changeLoginStatus(state: any, { payload }: any) {
       const { status, currentUser, credential } = payload;
-      try {
-        switch (status) {
-          case 'ok':
-            return { ...state, status, currentUser, credential: { ...state.credential, ...credential } };
-          case 'pending':
-            return { ...state, status, currentUser: null };
-          default:
-            return { ...state, status };
-        }
-      } finally {
-        // reloadAuthorized()
+      switch (status) {
+        case 'ok':
+          return { ...state, status, currentUser, credential: { ...state.credential, ...credential } };
+        case 'pending':
+          return { ...state, status, currentUser: null };
+        default:
+          return { ...state, status };
       }
-    },
+    }
   },
+},
   subscriptions: {
     async setup({ dispatch, history }) {
       dispatch({ type: 'watchToken' });
-      dispatch({ type: 'logonWithLocalStorage' });
-      history.listen(({ pathname, search }): void => {
-        if (pathname === '/logout') {
-          dispatch({ type: 'logout' });
-        }
-      });
+dispatch({ type: 'logonWithLocalStorage' });
+history.listen(({ pathname, search }): void => {
+  if (pathname === '/logout') {
+    dispatch({ type: 'logout' });
+  }
+});
     },
   },
 };

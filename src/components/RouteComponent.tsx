@@ -1,13 +1,11 @@
 import React from 'react';
 
-import { stringify } from 'qs';
+import { useAccess } from 'umi';
 import { useReactComponent } from 'sunmao';
-import { useSelector as useReduxSelector } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import { stringify } from 'qs';
 
 import { AuthComponentProps, UseRouteSelectorFunc } from '../../types';
-
-import Authorized from './Authorized';
 
 function DefaultLoadingComponent() {
   return <></>;
@@ -19,20 +17,17 @@ export const AuthComponent: React.ComponentType<AuthComponentProps> = ({
   loading: LoadingComponent = DefaultLoadingComponent,
   children,
 }: AuthComponentProps) => {
-  const authority = useRouteSelector(id, state => state.routes.get(id)?.authority || []);
-  const isLogin = useReduxSelector((state: any) => state.auth.status === 'ok');
+  const access = useAccess();
+  const authorized = useRouteSelector(id, state => state.routes.get(id)?.authorized || []);
   if (window.location.pathname === '/login') {
     return children;
   }
   const redirect = window.location.pathname + window.location.search;
-  return (
-    <Authorized
-      authority={authority.length ? authority : ['ROLE_USER']}
-      noMatch={isLogin ? <Redirect to="/exception/403" /> : <Redirect to={`/login?${stringify({ redirect })}`} />}
-    >
-      {isLogin ? children : <LoadingComponent />}
-    </Authorized>
-  );
+  if (access.anonymous && authorized) {
+    return <Redirect to={`/login?${stringify({ redirect })}`} />;
+  }
+
+  return children || LoadingComponent;
 };
 
 interface RouteComponentProps {

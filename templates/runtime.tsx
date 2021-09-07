@@ -12,7 +12,7 @@ import {
   getRoute as GET_ROUTE,
 } from './gql/application.gql';
 import { setCurrentApplication } from './models/global';
-// import { AppManager, EnvironmentManager } from '@asany/components';
+import { AppManager } from '@asany/umi-plugin-app';
 
 const logging = process.env.NODE_ENV === 'development';
 
@@ -70,7 +70,7 @@ async function loadRoutes() {
   // env.set('layout.navbar.logo', app.logo);
   // env.set('layout.navbar.title', app.name);
 
-  // extraRoutes = AppManager.transform(app.routes);
+  extraRoutes = AppManager.transform(app.routes);
 }
 
 export const patchRoutes = ({ routes }: any) => {
@@ -87,7 +87,7 @@ export const render = (oldRender: () => void) => {
   loadRoutes().then(oldRender);
 };
 
-export const onRouteChange = () => { };
+export const onRouteChange = () => {};
 
 const persistConfig = {
   timeout: 1000, // you can define your time. But is required.
@@ -114,10 +114,10 @@ export const dva = {
   plugins: [
     ...(logging
       ? [
-        {
-          onAction: createLogger(),
-        },
-      ]
+          {
+            onAction: createLogger(),
+          },
+        ]
       : []),
   ],
 };
