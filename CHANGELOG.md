@@ -1,3 +1,12 @@
+## [0.1.13](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.12...v0.1.13) (2021-09-07)
+
+
+### Features
+
+* 将业务逻辑代码全部移动到 umi 中 ([6c36521](https://github.com/limaofeng/umi-plugin-app/commit/6c365214e1c71ac7c2f24b60be3cef5b14f7de5d))
+
+
+
 ## [0.1.12](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.11...v0.1.12) (2021-09-07)
 
 
