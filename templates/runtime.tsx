@@ -75,9 +75,7 @@ async function loadRoutes() {
 
 export const patchRoutes = ({ routes }: any) => {
   routes.splice(1);
-  Object.keys(authRoutes).forEach(authKey =>
-    ergodicRoutes(routes, authKey, authRoutes[authKey].authority)
-  );
+  Object.keys(authRoutes).forEach(authKey => ergodicRoutes(routes, authKey, authRoutes[authKey].authority));
   merge(routes, extraRoutes);
 };
 
@@ -89,7 +87,7 @@ export const render = (oldRender: () => void) => {
   loadRoutes().then(oldRender);
 };
 
-export const onRouteChange = () => {};
+export const onRouteChange = () => { };
 
 const persistConfig = {
   timeout: 1000, // you can define your time. But is required.
@@ -97,16 +95,8 @@ const persistConfig = {
   storage,
 };
 
-const persistEnhancer = () => (createStore: any) => (
-  reducer: any,
-  initialState: any,
-  enhancer: any
-) => {
-  const store = createStore(
-    persistReducer(persistConfig, reducer),
-    initialState,
-    enhancer
-  );
+const persistEnhancer = () => (createStore: any) => (reducer: any, initialState: any, enhancer: any) => {
+  const store = createStore(persistReducer(persistConfig, reducer), initialState, enhancer);
   const persistor = persistStore(store, null);
   return {
     persistor,
@@ -124,10 +114,10 @@ export const dva = {
   plugins: [
     ...(logging
       ? [
-          {
-            onAction: createLogger(),
-          },
-        ]
+        {
+          onAction: createLogger(),
+        },
+      ]
       : []),
   ],
 };

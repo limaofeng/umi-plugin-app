@@ -1,59 +1,18 @@
-import React, { ComponentType, useEffect, useReducer, useRef } from 'react';
+import React, { ComponentType, useCallback, useEffect, useReducer, useRef } from 'react';
+
 import { EventEmitter } from 'events';
+
 import isEqual from 'lodash/isEqual';
-import RouteComponent, {
-  AuthComponent,
-  RouteWrapperComponent,
-} from './RouteComponent';
-import * as utils from './utils';
 
-export type UseRouteSelectorFunc = <Selected>(
-  id: string,
-  selector: Selector<Selected>,
-  equalityFn?: EqualityFn<Selected>
-) => Selected;
+import * as utils from '../utils';
+import { EqualityFn, IRoute, IRouteComponent, Selector, SubscribeCallback, UseRouteSelectorFunc } from '../../types';
 
-export interface IApplication {
-  path: string;
-}
-
-export interface IRouteComponent {
-  template: string;
-  props: any[];
-  routeWrapper?: {
-    template: string;
-    props: any[];
-  };
-}
-
-export interface IRoute {
-  id: string;
-  path?: string;
-  name?: string;
-  type: 'menu' | 'header' | 'divider' | 'route' | 'portal';
-  component?: IRouteComponent;
-  configuration: any;
-  application: IApplication;
-  authorized: boolean;
-  authority: string[];
-  wrappers: any[];
-  routes: any[] | undefined;
-  exact: boolean;
-  parent: any;
-}
+import RouteComponent, { AuthComponent, RouteWrapperComponent } from './RouteComponent';
 
 const EVENT_ROUTE_RELOAD = 'EVENT_ROUTE_RELOAD';
 const EVENT_SINGLE_ROUTE_UPDATE_PREFIX = 'EVENT_SINGLE_ROUTE_UPDATE_';
 
-type SubscribeCallback = () => void;
-export type Selector<Selected> = (state: AppManagerState) => Selected;
-export type EqualityFn<Selected> = (a: Selected, b: Selected) => boolean;
-
 const defaultEqualityFn = isEqual;
-
-interface AppManagerState {
-  routes: Map<string, IRoute>;
-}
 
 export class AppManager {
   private routes = new Map<string, IRoute>();
@@ -101,9 +60,7 @@ export class AppManager {
       : { component: undefined, wrappers: [] as ComponentType<any>[] };
 
     // 转换子组件
-    route.routes = isParent
-      ? route.routes!.map(this.transformRoute)
-      : undefined;
+    route.routes = isParent ? route.routes!.map(this.transformRoute) : undefined;
 
     // 包装器
     if (route.authorized) {
@@ -136,11 +93,7 @@ export class AppManager {
       this.cache.set(
         CACHE_COMPONENT_KEY,
         (component = (props: any) => (
-          <RouteComponent
-            useRouteSelector={this.useRouteSelector}
-            ROUTEID={id}
-            {...props}
-          />
+          <RouteComponent useRouteSelector={this.useRouteSelector} ROUTEID={id} {...props} />
         ))
       );
     }
@@ -151,11 +104,7 @@ export class AppManager {
         this.cache.set(
           CACHE_ROUTEWRAPPER_KEY,
           (wrapper = (props: any) => (
-            <RouteWrapperComponent
-              useRouteSelector={this.useRouteSelector}
-              ROUTEID={id}
-              {...props}
-            />
+            <RouteWrapperComponent useRouteSelector={this.useRouteSelector} ROUTEID={id} {...props} />
           ))
         );
       }
@@ -171,11 +120,7 @@ export class AppManager {
       this.cache.set(
         CACHE_AUTHCOMPONENT_KEY,
         (authorized = (props: any) => (
-          <AuthComponent
-            ROUTEID={id}
-            useRouteSelector={this.useRouteSelector}
-            {...props}
-          />
+          <AuthComponent ROUTEID={id} useRouteSelector={this.useRouteSelector} {...props} />
         ))
       );
     }
@@ -188,17 +133,12 @@ export class AppManager {
 
   private unsubscribe = (callback: SubscribeCallback, id?: string) => () => {
     this.emitter.removeListener(EVENT_ROUTE_RELOAD, callback);
-    id &&
-      this.emitter.removeListener(
-        EVENT_SINGLE_ROUTE_UPDATE_PREFIX + id,
-        callback
-      );
+    id && this.emitter.removeListener(EVENT_SINGLE_ROUTE_UPDATE_PREFIX + id, callback);
   };
 
   subscribe = (callback: SubscribeCallback, id?: string) => {
     this.emitter.addListener(EVENT_ROUTE_RELOAD, callback);
-    id &&
-      this.emitter.addListener(EVENT_SINGLE_ROUTE_UPDATE_PREFIX + id, callback);
+    id && this.emitter.addListener(EVENT_SINGLE_ROUTE_UPDATE_PREFIX + id, callback);
     return this.unsubscribe(callback, id);
   };
 
@@ -215,14 +155,14 @@ export class AppManager {
     const [, forceRender] = useReducer(s => s + 1, 0);
     const latestSelectedState = useRef<any>();
     const selectedState = selector(state);
-    function checkForUpdates() {
+    const checkForUpdates = useCallback(function() {
       const newSelectedState = selector(state);
       if (equalityFn(newSelectedState, latestSelectedState.current!)) {
         return;
       }
       latestSelectedState.current = newSelectedState;
       forceRender();
-    }
+    }, []);
     useEffect(() => {
       return this.subscribe(checkForUpdates, id);
     }, []);

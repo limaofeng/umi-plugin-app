@@ -7,6 +7,8 @@ export interface TreeOptions<T> {
   sort?: (l: T, r: T) => number;
 }
 
+export { getAuthority, setAuthority } from './authority';
+
 export function getFieldValue(root: any, path: string) {
   let value = root;
   for (const key of path.split('.')) {
@@ -33,10 +35,7 @@ export function tree<T>(
   try {
     let roots = list.filter((item: any) => {
       if (getParentKey(item)) {
-        const parent = list.find(
-          parent =>
-            (parent as any)[idKey].toString() === getParentKey(item).toString()
-        );
+        const parent = list.find(parent => (parent as any)[idKey].toString() === getParentKey(item).toString());
         if (!parent) {
           return true;
         }

@@ -6,20 +6,29 @@
   "files": [
     "dist",
     "src",
+    "types",
     "templates"
   ],
+  "browser": {
+    "fs": false
+  },
   "engines": {
-    "node": ">=10"
+    "node": ">=14"
   },
   "scripts": {
     "start": "tsdx watch",
-    "start:example": "cross-env APP_ROOT=example umi dev",
+    "start:dev": "cross-env APP_ROOT=example umi dev",
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint",
     "prepare": "tsdx build",
     "size": "size-limit",
-    "analyze": "size-limit --why"
+    "analyze": "size-limit --why",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "postversion": "git push --follow-tags"
   },
   "peerDependencies": {
     "react": ">=16"
@@ -30,7 +39,7 @@
     }
   },
   "prettier": {
-    "printWidth": 80,
+    "printWidth": 120,
     "semi": true,
     "singleQuote": true,
     "trailingComma": "es5"
@@ -41,31 +50,55 @@
   "size-limit": [
     {
       "path": "dist/asany-chaos.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "100 KB"
     },
     {
       "path": "dist/asany-chaos.esm.js",
-      "limit": "10 KB"
+      "limit": "100 KB"
     }
   ],
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "lodash": "^4.17.21",
+    "path-to-regexp": "^6.2.0",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "sunmao": "^0.2.7"
+  },
   "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
     "@size-limit/preset-small-lib": "^5.0.3",
     "@types/lodash-es": "^4.17.4",
+    "@types/qs": "^6.9.7",
     "@types/react": "^17.0.20",
     "@types/react-dom": "^17.0.9",
+    "conventional-changelog-cli": "^2.1.1",
     "cross-env": "^7.0.3",
     "husky": "^7.0.2",
+    "identity-obj-proxy": "^3.0.0",
+    "pinst": "^2.1.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "react-router-dom": "^5.3.0",
     "size-limit": "^5.0.3",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^4.4.2",
     "umi": "^3.5.17"
   },
-  "dependencies": {
-    "lodash": "^4.17.21",
-    "redux-logger": "^3.0.6",
-    "redux-persist": "^6.0.0"
+  "resolutions": {
+    "**/@typescript-eslint/eslint-plugin": "^4.1.1",
+    "**/@typescript-eslint/parser": "^4.1.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "./__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "setupFiles": [
+      "<rootDir>/test/globals-test.ts"
+    ]
   }
 }

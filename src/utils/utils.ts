@@ -9,7 +9,7 @@ export const getAuthorityFromRouter = (router: any[] = [], pathname: string): an
   const authority = router.find(
     ({ routes, path = '/', target = '_self' }) =>
       (path && target !== '_blank' && pathToRegexp(path).exec(pathname)) ||
-      (routes && getAuthorityFromRouter(routes, pathname)),
+      (routes && getAuthorityFromRouter(routes, pathname))
   );
   if (authority) return authority;
   return undefined;
@@ -17,7 +17,7 @@ export const getAuthorityFromRouter = (router: any[] = [], pathname: string): an
 
 export const getRouteAuthority = (path: string, routeData: any[]) => {
   let authorities: string[] | string | undefined;
-  routeData.forEach((route) => {
+  routeData.forEach(route => {
     // match prefix
     if (pathToRegexp(`${route.path}/(.*)`).test(`${path}/`)) {
       if (route.authority) {

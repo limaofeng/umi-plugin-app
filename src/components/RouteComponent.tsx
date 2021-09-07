@@ -1,26 +1,16 @@
-import { stringify } from 'qs';
 import React from 'react';
-import { UseRouteSelectorFunc } from './AppManager';
 
-import Authorized from './utils/Authorized';
-import { useReduxSelector, ReactRouterDOM } from '../utils';
-import { useSketchComponent } from '../sketch';
+import { stringify } from 'qs';
+import { useReactComponent } from 'sunmao';
+import { useSelector as useReduxSelector } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
-const { Redirect } = ReactRouterDOM;
+import { AuthComponentProps, UseRouteSelectorFunc } from '../../types';
 
-interface LoadingComponentProps {}
+import Authorized from './Authorized';
 
 function DefaultLoadingComponent() {
   return <></>;
-}
-
-interface AuthComponentProps {
-  ROUTEID: string;
-  useRouteSelector: UseRouteSelectorFunc;
-  children: React.ReactElement;
-  loading?: React.ComponentType<LoadingComponentProps>;
-  route?: any;
-  location?: any;
 }
 
 export const AuthComponent: React.ComponentType<AuthComponentProps> = ({
@@ -29,8 +19,8 @@ export const AuthComponent: React.ComponentType<AuthComponentProps> = ({
   loading: LoadingComponent = DefaultLoadingComponent,
   children,
 }: AuthComponentProps) => {
-  const authority = useRouteSelector(id, (state) => state.routes.get(id)?.authority || []);
-  const isLogin = useReduxSelector((state: any) => state.auth.status == 'ok');
+  const authority = useRouteSelector(id, state => state.routes.get(id)?.authority || []);
+  const isLogin = useReduxSelector((state: any) => state.auth.status === 'ok');
   if (window.location.pathname === '/login') {
     return children;
   }
@@ -52,13 +42,15 @@ interface RouteComponentProps {
 }
 
 export function RouteWrapperComponent({ ROUTEID: id, useRouteSelector, ...props }: RouteComponentProps) {
-  const routeWrapper = useRouteSelector(id, (state) => state.routes.get(id)?.component?.routeWrapper);
-  const Component = useSketchComponent(routeWrapper!.template, routeWrapper!.props, { id: `${id}_wrapper` });
+  const routeWrapper = useRouteSelector(id, state => state.routes.get(id)?.component?.routeWrapper);
+  const Component = useReactComponent(routeWrapper!.template, routeWrapper!.props, { id: `${id}_wrapper` });
   return <Component {...props} />;
 }
 
 export default function RouteComponent({ ROUTEID: id, useRouteSelector, ...props }: RouteComponentProps) {
-  const component = useRouteSelector(id, (state) => state.routes.get(id)?.component);
-  const Component = useSketchComponent(component!.template, component!.props, { id });
+  const component = useRouteSelector(id, state => state.routes.get(id)?.component);
+  const Component = useReactComponent(component!.template, component!.props, {
+    id,
+  });
   return <Component {...props} />;
 }
