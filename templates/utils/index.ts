@@ -7,8 +7,6 @@ export interface TreeOptions<T> {
   sort?: (l: T, r: T) => number;
 }
 
-export { getAuthority, setAuthority } from './authority';
-
 export function getFieldValue(root: any, path: string) {
   let value = root;
   for (const key of path.split('.')) {

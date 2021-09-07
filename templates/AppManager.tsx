@@ -4,10 +4,10 @@ import { EventEmitter } from 'events';
 
 import isEqual from 'lodash/isEqual';
 
-import * as utils from '../utils';
-import { EqualityFn, IRoute, IRouteComponent, Selector, SubscribeCallback, UseRouteSelectorFunc } from '../../types';
+import * as utils from './utils';
+import { EqualityFn, IRoute, IRouteComponent, Selector, SubscribeCallback, UseRouteSelectorFunc } from '../types';
 
-import RouteComponent, { AuthComponent, RouteWrapperComponent } from './RouteComponent';
+import RouteComponent, { AuthComponent, RouteWrapperComponent } from './components/RouteComponent';
 
 const EVENT_ROUTE_RELOAD = 'EVENT_ROUTE_RELOAD';
 const EVENT_SINGLE_ROUTE_UPDATE_PREFIX = 'EVENT_SINGLE_ROUTE_UPDATE_';

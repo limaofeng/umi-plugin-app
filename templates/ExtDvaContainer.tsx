@@ -5,8 +5,8 @@ import React from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { PersistGate } from 'redux-persist/integration/react';
+import { getDvaApp } from 'umi';
 
-import { getDvaApp } from '../core/umiExports';
 import auth from './models/auth';
 import global from './models/global';
 
@@ -33,10 +33,7 @@ class ExtDvaContainer extends React.Component<ExtDvaContainerProps> {
   render() {
     const { children } = this.props;
     return (
-      <PersistGate
-        persistor={this.store.persistor}
-        loading={<div>加载组件</div>}
-      >
+      <PersistGate persistor={this.store.persistor} loading={<div>加载组件</div>}>
         <ConfigProvider locale={zhCN}>
           <DndProvider backend={HTML5Backend}>{children}</DndProvider>
         </ConfigProvider>
