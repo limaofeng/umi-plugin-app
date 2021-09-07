@@ -44,7 +44,7 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "umi-plugin-app",
+  "name": "@asany/umi-plugin-app",
   "author": "李茂峰",
   "repository": "https://github.com/limaofeng/umi-plugin-app",
   "module": "dist/umi-plugin-app.esm.js",
