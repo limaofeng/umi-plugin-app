@@ -1,3 +1,12 @@
+## [0.1.14](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.13...v0.1.14) (2021-09-07)
+
+
+### Bug Fixes
+
+* 解决导包造成的BUG ([521c0b6](https://github.com/limaofeng/umi-plugin-app/commit/521c0b65c834ebd903385e5bcd1e6d1e53e0c7e9))
+
+
+
 ## [0.1.13](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.12...v0.1.13) (2021-09-07)
 
 
