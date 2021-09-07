@@ -4,17 +4,18 @@ import { merge } from 'lodash';
 import { createLogger } from 'redux-logger';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { AppManager } from '@asany/umi-plugin-app';
-
-import { client } from '../apollo';
+import { client } from 'umi';
 
 import ExtDvaContainer from './ExtDvaContainer';
+import AppManager from './AppManager';
+import { setCurrentApplication } from './models/global';
 import {
   getApplication as GET_APPLICATION,
-  getRoute as GET_ROUTE,
-  subscibeUpdateRoute as SUBSCIBE_UPDATEROUTE,
+  // getRoute as GET_ROUTE,
+  // subscibeUpdateRoute as SUBSCIBE_UPDATEROUTE,
 } from './gql/application.gql';
-import { setCurrentApplication } from './models/global';
+
+// import * as libraries from './autoImportLibrary';
 
 const logging = process.env.NODE_ENV === 'development';
 
@@ -65,8 +66,6 @@ async function loadRoutes() {
 
   setCurrentApplication(app);
 
-  // await import('./autoImportLibrary');
-
   // const env = EnvironmentManager.currentEnvironment();
 
   // env.set('layout.navbar.logo', app.logo);
@@ -82,7 +81,7 @@ export const patchRoutes = ({ routes }: any) => {
 };
 
 export const rootContainer = (container: any) => {
-  return React.createElement(ExtDvaContainer as any, null, container);
+  return React.createElement(ExtDvaContainer as any, { client, libraries: [] }, container);
 };
 
 export const render = (oldRender: () => void) => {

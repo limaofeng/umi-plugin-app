@@ -2,6 +2,16 @@
 # yarn lockfile v1
 
 
+"@asany/icons@^0.1.14":
+  version "0.1.14"
+  resolved "https://registry.npmjs.org/@asany/icons/-/icons-0.1.14.tgz#d713e1bf7abb54ca787165154502807ea463d125"
+  integrity sha512-PGfoOZsVcDaUxq2JYE7tTHcmRa+WRrt8+30puF8n6+1KtmGE4Do/XAVZC8Jzy0CM8PNiM3QsgGSIIthln0nksQ==
+  dependencies:
+    classnames "^2.3.1"
+    dexie "^3.0.3"
+    fonteditor-core "^2.1.7"
+    lodash "^4.17.21"
+
 "@babel/code-frame@^7.0.0", "@babel/code-frame@^7.14.5", "@babel/code-frame@^7.5.5":
   version "7.14.5"
   resolved "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.14.5.tgz#23b08d740e83f49c5e59945fbf1b43e80bbf4edb"
@@ -3833,6 +3843,11 @@ detect-newline@^3.0.0:
   resolved "https://registry.npmjs.org/detect-newline/-/detect-newline-3.1.0.tgz#576f5dfc63ae1a192ff192d8ad3af6308991b651"
   integrity sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==
 
+dexie@^3.0.3:
+  version "3.0.3"
+  resolved "https://registry.npmjs.org/dexie/-/dexie-3.0.3.tgz#ede63849dfe5f07e13e99bb72a040e8ac1d29dab"
+  integrity sha512-BSFhGpngnCl1DOr+8YNwBDobRMH0ziJs2vts69VilwetHYOtEDcLqo7d/XiIphM0tJZ2rPPyAGd31lgH2Ln3nw==
+
 diff-sequences@^25.2.6:
   version "25.2.6"
   resolved "https://registry.npmjs.org/diff-sequences/-/diff-sequences-25.2.6.tgz#5f467c00edd35352b7bca46d7927d60e687a76dd"
@@ -4681,6 +4696,13 @@ flush-write-stream@^1.0.0:
   dependencies:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
+
+fonteditor-core@^2.1.7:
+  version "2.1.8"
+  resolved "https://registry.npmjs.org/fonteditor-core/-/fonteditor-core-2.1.8.tgz#50a2af8133c3536da9b911ec2616abaf0d22931a"
+  integrity sha512-cBPTY+TTLSB74HCxMQdvezfb60La4+a3+iwaG9BzkttbALFlC5V+Y8M66BPmCn2H9cyiCAd5DSMBaZXR+SC4LA==
+  dependencies:
+    xmldom "^0.5.0"
 
 for-in@^1.0.2:
   version "1.0.2"
@@ -10411,6 +10433,11 @@ xmlchars@^2.1.1:
   version "2.2.0"
   resolved "https://registry.npmjs.org/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
+
+xmldom@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.npmjs.org/xmldom/-/xmldom-0.5.0.tgz#193cb96b84aa3486127ea6272c4596354cb4962e"
+  integrity sha512-Foaj5FXVzgn7xFzsKeNIde9g6aFBxTPi37iwsno8QvApmtg7KYrr+OPyRHcJF7dud2a5nGRBXK3n0dL62Gf7PA==
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.2"

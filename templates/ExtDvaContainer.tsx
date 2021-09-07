@@ -2,21 +2,27 @@
 import React from 'react';
 
 import { ConfigProvider } from 'antd';
+import Sunmao, { ILibraryDefinition, SunmaoProvider } from 'sunmao';
 import zhCN from 'antd/es/locale/zh_CN';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { PersistGate } from 'redux-persist/integration/react';
 import { getDvaApp } from 'umi';
+import { IconProvider } from '@asany/icons';
 
+import { sunmao } from './exports';
 import auth from './models/auth';
 import global from './models/global';
 
 interface ExtDvaContainerProps {
   children: any;
+  client: any;
+  libraries: ILibraryDefinition[];
 }
 
 class ExtDvaContainer extends React.Component<ExtDvaContainerProps> {
   private store: any;
+  private sunmao: Sunmao;
   constructor(props: ExtDvaContainerProps) {
     super(props);
     const dvaApp = getDvaApp();
@@ -24,6 +30,8 @@ class ExtDvaContainer extends React.Component<ExtDvaContainerProps> {
     dvaApp.model(auth);
     dvaApp.model(global);
     this.store = dvaApp._store;
+    this.sunmao = sunmao;
+    this.sunmao.addLibrary(...props.libraries);
     // 转移系统环境变量到 EnvironmentManager 中
     // const environment = EnvironmentManager.currentEnvironment();
     // environment.set("paths.upload.url", process.env.STORAGE_URL + '/files');
@@ -35,9 +43,13 @@ class ExtDvaContainer extends React.Component<ExtDvaContainerProps> {
     const { children } = this.props;
     return (
       <PersistGate persistor={this.store.persistor} loading={<div>加载组件</div>}>
-        <ConfigProvider locale={zhCN}>
-          <DndProvider backend={HTML5Backend}>{children}</DndProvider>
-        </ConfigProvider>
+        <IconProvider>
+          <SunmaoProvider sunmao={this.sunmao}>
+            <ConfigProvider locale={zhCN}>
+              <DndProvider backend={HTML5Backend}>{children}</DndProvider>
+            </ConfigProvider>
+          </SunmaoProvider>
+        </IconProvider>
       </PersistGate>
     );
   }
