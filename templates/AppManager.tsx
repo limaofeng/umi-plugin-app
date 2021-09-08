@@ -162,9 +162,11 @@ export class AppManager {
       }
       latestSelectedState.current = newSelectedState;
       forceRender();
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     useEffect(() => {
       return this.subscribe(checkForUpdates, id);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
     return selectedState;
   };
