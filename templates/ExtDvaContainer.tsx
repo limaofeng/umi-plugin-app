@@ -17,7 +17,7 @@ import global from './models/global';
 interface ExtDvaContainerProps {
   children: any;
   client: any;
-  libraries: ILibraryDefinition[];
+  libraries: { [key: string]: ILibraryDefinition };
 }
 
 class ExtDvaContainer extends React.Component<ExtDvaContainerProps> {
@@ -31,7 +31,7 @@ class ExtDvaContainer extends React.Component<ExtDvaContainerProps> {
     dvaApp.model(global);
     this.store = dvaApp._store;
     this.sunmao = sunmao;
-    this.sunmao.addLibrary(...props.libraries);
+    this.sunmao.addLibrary(...Object.keys(props.libraries).map(key => props.libraries[key]));
     // 转移系统环境变量到 EnvironmentManager 中
     // const environment = EnvironmentManager.currentEnvironment();
     // environment.set("paths.upload.url", process.env.STORAGE_URL + '/files');

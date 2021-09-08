@@ -55,9 +55,8 @@ export class AppManager {
 
     const isParent = route.routes && route.routes.length;
     // 构造组件
-    const { component, wrappers } = route.component
-      ? this.renderRouteComponent(route.id, route.component)
-      : { component: undefined, wrappers: [] as ComponentType<any>[] };
+    const component: ComponentType<any> = route.component && this.renderRouteComponent(route.id);
+    const wrappers: ComponentType<any>[] = [];
 
     // 转换子组件
     route.routes = isParent ? route.routes!.map(this.transformRoute) : undefined;
@@ -79,16 +78,9 @@ export class AppManager {
     return { ...route, component, wrappers };
   };
 
-  private renderRouteComponent(
-    id: string,
-    { routeWrapper }: IRouteComponent
-  ): {
-    component: ComponentType<any>;
-    wrappers: ComponentType<any>[];
-  } {
+  private renderRouteComponent(id: string): ComponentType<any> {
     const CACHE_COMPONENT_KEY = `COMPONENT_${id}`;
     let component = this.cache.get(CACHE_COMPONENT_KEY);
-    const wrappers = [];
     if (!component) {
       this.cache.set(
         CACHE_COMPONENT_KEY,
@@ -97,21 +89,29 @@ export class AppManager {
         ))
       );
     }
-    if (routeWrapper && routeWrapper.template) {
-      const CACHE_ROUTEWRAPPER_KEY = `ROUTEWRAPPER_${id}`;
-      let wrapper = this.cache.get(CACHE_ROUTEWRAPPER_KEY);
-      if (!wrapper) {
-        this.cache.set(
-          CACHE_ROUTEWRAPPER_KEY,
-          (wrapper = (props: any) => (
-            <RouteWrapperComponent useRouteSelector={this.useRouteSelector} ROUTEID={id} {...props} />
-          ))
-        );
-      }
-      wrappers.push(wrapper);
-    }
-    return { component, wrappers };
+    return component;
   }
+
+  // private renderComponentWrappers(
+  //   id: string,
+  //   wrapperDatas: any[]
+  // ): ComponentType<any>[] {
+  //   const wrappers = [];
+  //   if (routeWrapper && routeWrapper.template) {
+  //     const CACHE_ROUTEWRAPPER_KEY = `ROUTEWRAPPER_${id}`;
+  //     let wrapper = this.cache.get(CACHE_ROUTEWRAPPER_KEY);
+  //     if (!wrapper) {
+  //       this.cache.set(
+  //         CACHE_ROUTEWRAPPER_KEY,
+  //         (wrapper = (props: any) => (
+  //           <RouteWrapperComponent useRouteSelector={this.useRouteSelector} ROUTEID={id} {...props} />
+  //         ))
+  //       );
+  //     }
+  //     wrappers.push(wrapper);
+  //   }
+  //   return wrappers;
+  // }
 
   private renderAuthorized = (id: string): ComponentType<any> => {
     const CACHE_AUTHCOMPONENT_KEY = `AUTHCOMPONENT_${id}`;

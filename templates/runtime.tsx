@@ -14,29 +14,9 @@ import {
   // getRoute as GET_ROUTE,
   // subscibeUpdateRoute as SUBSCIBE_UPDATEROUTE,
 } from './gql/application.gql';
-
-// import * as libraries from './autoImportLibrary';
+import * as libraries from './autoImportLibrary';
 
 const logging = process.env.NODE_ENV === 'development';
-
-interface IApplication {
-  path: string;
-}
-
-interface IRoute {
-  path?: string;
-  name?: string;
-  type: 'menu' | 'header' | 'divider' | 'route';
-  component: any | React.SFC<any>;
-  configuration: any;
-  application: IApplication;
-  authorized: boolean;
-  authority: string[];
-  wrappers: any[];
-  routes: any[] | undefined;
-  exact: boolean;
-  parent: any;
-}
 
 const authRoutes = {};
 let extraRoutes: any[] = [];
@@ -81,7 +61,7 @@ export const patchRoutes = ({ routes }: any) => {
 };
 
 export const rootContainer = (container: any) => {
-  return React.createElement(ExtDvaContainer as any, { client, libraries: [] }, container);
+  return React.createElement(ExtDvaContainer as any, { client, libraries }, container);
 };
 
 export const render = (oldRender: () => void) => {
@@ -105,6 +85,12 @@ const persistEnhancer = () => (createStore: any) => (reducer: any, initialState:
   };
 };
 
+const dvaPlugins = [
+  {
+    onAction: createLogger(),
+  },
+];
+
 export const dva = {
   config: {
     extraEnhancers: [persistEnhancer()],
@@ -112,13 +98,5 @@ export const dva = {
       console.error(e.message, e);
     },
   },
-  plugins: [
-    ...(logging
-      ? [
-          {
-            onAction: createLogger(),
-          },
-        ]
-      : []),
-  ],
+  plugins: logging ? dvaPlugins : [],
 };

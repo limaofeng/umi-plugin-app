@@ -58,17 +58,17 @@ export default function(api: IApi) {
   api.onGenerateFiles(() => {
     const indexPath = 'app/autoImportLibrary.ts';
 
-    const templatePath = joinTemplatePath('autoImportLibrary.ts');
+    const templatePath = joinTemplatePath('autoImportLibrary.hbs');
     const indexTemplate = readFileSync(templatePath, 'utf-8');
 
     const dirs = readdirSync(api.paths.absPagesPath!, { withFileTypes: true });
     const librarys = dirs
       .filter(dir => dir.isDirectory())
-      .map(dir => ({ path: api.paths.absPagesPath! + '/' + dir.name }));
+      .map(dir => ({ path: api.paths.absPagesPath! + '/' + dir.name, name: dir.name }));
 
     const layoutDir = api.paths.absSrcPath! + '/layouts';
     if (existsSync(layoutDir)) {
-      librarys.push({ path: layoutDir });
+      librarys.push({ path: layoutDir, name: 'layout' });
     }
 
     api.writeTmpFile({
