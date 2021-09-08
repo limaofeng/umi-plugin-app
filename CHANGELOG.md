@@ -1,3 +1,12 @@
+## [0.1.15](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.14...v0.1.15) (2021-09-08)
+
+
+### Bug Fixes
+
+* 解决启动BUG 集成 sunmao 与 icons ([68d3f44](https://github.com/limaofeng/umi-plugin-app/commit/68d3f444cf8e9381cffabc86c7b6758f222141bf))
+
+
+
 ## [0.1.14](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.13...v0.1.14) (2021-09-07)
 
 
