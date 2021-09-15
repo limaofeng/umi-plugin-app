@@ -1,9 +1,6 @@
 query getApplication($id: ID!) {
   app: application(id: $id) {
     ...ApplicationInfo
-    rootRoute {
-      ...RouteParts
-    }
     loginRoute {
       ...RouteParts
     }
@@ -13,13 +10,24 @@ query getApplication($id: ID!) {
     routes {
       ...RouteParts
     }
+    menus {
+      id
+      icon
+      name
+      path
+      type
+      index
+      authorized
+      hideInBreadcrumb
+      enabled
+      parent {
+        id
+        path
+      }
+    }
   }
 }
-query getRoute($id: ID!) {
-  route(id: $id) {
-    ...RouteParts
-  }
-}
+
 subscription subscibeUpdateRoute {
   updateRoute {
     id
@@ -31,22 +39,23 @@ subscription subscibeUpdateRoute {
     }
   }
 }
+
 fragment ApplicationInfo on Application {
   id
   name
-  description
-  enabled
   logo
+  enabled
+  description
+  clientId
 }
+
 fragment RouteParts on Route {
   id
   name
   path
   type
+  access
   authorized
-  authority
-  hideInMenu
-  hideChildrenInMenu
   hideInBreadcrumb
   redirect
   component {

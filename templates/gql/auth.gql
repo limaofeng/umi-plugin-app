@@ -17,34 +17,27 @@ mutation loginByDingtalk($code: String!) {
     authoritys
   }
 }
-mutation loginByUsername($username: String, $password: String) {
-  login(username: $username, password: $password) {
+
+mutation loginByUsername($clientId: String!, $username: String, $password: String) {
+  login(clientId: $clientId, username: $username, password: $password) {
     uid
     name
-    token
     type
-    authoritys
+    token
+    authorities
   }
 }
+
 query viewer {
   viewer {
     uid
+    type
     name
     title
     avatar
-    email
-    jobNumber
-    signature
-    group
     phone
-    authoritys
-    token
-    permissions {
-      permission {
-        id
-      }
-      securityType
-      resource
-    }
+    email
+    signature
+    authorities
   }
 }

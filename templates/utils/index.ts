@@ -7,6 +7,23 @@ export interface TreeOptions<T> {
   sort?: (l: T, r: T) => number;
 }
 
+export const sleep = (time: number) =>
+  new Promise(resolve => {
+    setTimeout(() => {
+      resolve(0);
+    }, time);
+  });
+
+export const delay = async (call: Promise<any>, time: number) => {
+  const [data] = await Promise.allSettled([call, sleep(time)]);
+  if (data.status === 'rejected') {
+    throw data.reason;
+  } else if (data.status === 'fulfilled') {
+    return data.value;
+  }
+  throw new Error(`Promise 状态错误:${JSON.stringify(data)}`);
+};
+
 export function getFieldValue(root: any, path: string) {
   let value = root;
   for (const key of path.split('.')) {

@@ -1,12 +1,15 @@
 import { routerRedux } from 'dva';
+import { getDvaApp } from 'umi';
 import { parse } from 'qs';
 import { Effect, Reducer, Subscription } from 'umi';
 
 import { client } from '../../apollo';
 import tokenHelper from '../../apollo/TokenHelper';
-import { viewer as LOAD_CURRENTUSER } from '../gql/auth.gql';
+import { viewer as LOAD_CURRENTUSER, loginByUsername as LOGIN_BY_USERNAME } from '../gql/auth.gql';
+import { delay } from '../utils';
+import { CurrentUser } from '../typings';
 
-export function getPageQuery() {
+function getPageQuery() {
   return parse(window.location.href.split('?')[1]);
 }
 
@@ -14,7 +17,11 @@ interface NetworkError extends Error {
   statusCode: number;
 }
 
-async function loadCurrentuser() {
+export async function loadCurrentuser(): Promise<CurrentUser> {
+  const token = localStorage.getItem('credentials');
+  if (!tokenHelper.withToken() && token) {
+    tokenHelper.setToken(token);
+  }
   const {
     data: { viewer },
   } = await client.query({
@@ -24,57 +31,25 @@ async function loadCurrentuser() {
   return viewer;
 }
 
-export interface CurrentUser {
-  /**
-   * 用户ID
-   */
-  uid: string;
-  /**
-   * 名称
-   */
-  name: string;
-  /**
-   * 称号
-   */
-  title: string;
-  /**
-   * 头像
-   */
-  avatar: any;
-  /**
-   * 邮箱
-   */
-  email: string;
-  /**
-   * 签名
-   */
-  signature: string;
-  /**
-   * 组名
-   */
-  group: string;
-  /**
-   * 电话
-   */
-  phone: string;
-  /**
-   * 权限
-   */
-  authoritys: [string];
-
-  permissions: any[];
-  /**
-   * 组织
-   */
-  organization: any;
-  /**
-   * 部门
-   */
-  department: any;
-  departments: any;
-  positions: any;
-  jobNumber: string;
-  token: string;
+export async function loginWithUsername(username: string, password: string) {
+  const {
+    data: { login },
+  } = await delay(
+    client.mutate({
+      mutation: LOGIN_BY_USERNAME,
+      variables: {
+        clientId: '{{id}}',
+        username,
+        password,
+      },
+      fetchPolicy: 'no-cache',
+    }),
+    1000
+  );
+  const dvaApp = getDvaApp();
+  console.log('getDvaApp', dvaApp);
+  localStorage.setItem('credentials', login.token);
+  return login;
 }
 
 export interface TokenCredential {
@@ -190,7 +165,7 @@ const AuthModel: AuthModelType = {
         });
         const json = localStorage.getItem('loginCredentials');
         if (!json) {
-          yield put({ type: 'redirect' });
+          // yield put({ type: 'redirect' });
           return;
         }
         const loginCredentials = JSON.parse(json);

@@ -5,29 +5,37 @@ import { useReactComponent } from 'sunmao';
 import { Redirect } from 'react-router-dom';
 import { stringify } from 'qs';
 
-import { AuthComponentProps, UseRouteSelectorFunc } from '../../types';
+import { AuthComponentProps, UseRouteSelectorFunc } from '../typings';
 
 function DefaultLoadingComponent() {
   return <></>;
 }
 
-export const AuthComponent: React.ComponentType<AuthComponentProps> = ({
+export const AuthComponent = ({
   ROUTEID: id,
+  redirectUrl = '/login',
   useRouteSelector,
   loading: LoadingComponent = DefaultLoadingComponent,
   children,
 }: AuthComponentProps) => {
   const access = useAccess();
-  const authorized = useRouteSelector(id, state => state.routes.get(id)?.authorized || []);
-  if (window.location.pathname === '/login') {
+  const authorized = useRouteSelector(id, ({ routes }) => routes.get(id)?.authorized);
+
+  if (window.location.pathname.endsWith('/login')) {
     return children;
   }
-  const redirect = window.location.pathname + window.location.search;
-  if (access.anonymous && authorized) {
-    return <Redirect to={`/login?${stringify({ redirect })}`} />;
+
+  let redirect = window.location.pathname + window.location.search;
+  redirect = redirect.substr(Math.max(__webpack_public_path__.length - 1, 0));
+
+  if (!access.isAuthorized && authorized) {
+    if (!redirect) {
+      return <Redirect to={redirectUrl} />;
+    }
+    return <Redirect to={`${redirectUrl}${redirectUrl.includes('?') ? '&' : '?'}${stringify({ redirect })}`} />;
   }
 
-  return children || LoadingComponent;
+  return children || <LoadingComponent />;
 };
 
 interface RouteComponentProps {

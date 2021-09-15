@@ -51,6 +51,7 @@ export default function(api: IApi) {
     'utils/index.ts',
     'AppManager.tsx',
     'exports.ts',
+    'typings.ts',
   ];
 
   files.map(fileName => cenerateFile(api, fileName));

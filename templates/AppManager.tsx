@@ -4,10 +4,9 @@ import { EventEmitter } from 'events';
 
 import isEqual from 'lodash/isEqual';
 
-import { EqualityFn, IRoute, IRouteComponent, Selector, SubscribeCallback, UseRouteSelectorFunc } from '../types';
-
+import { EqualityFn, IRoute, Selector, SubscribeCallback, UseRouteSelectorFunc } from './typings';
 import * as utils from './utils';
-import RouteComponent, { AuthComponent, RouteWrapperComponent } from './components/RouteComponent';
+import RouteComponent, { AuthComponent } from './components/RouteComponent';
 
 const EVENT_ROUTE_RELOAD = 'EVENT_ROUTE_RELOAD';
 const EVENT_SINGLE_ROUTE_UPDATE_PREFIX = 'EVENT_SINGLE_ROUTE_UPDATE_';
@@ -54,6 +53,7 @@ export class AppManager {
     this.routes.set(route.id, route);
 
     const isParent = route.routes && route.routes.length;
+
     // 构造组件
     const component: ComponentType<any> = route.component && this.renderRouteComponent(route.id);
     const wrappers: ComponentType<any>[] = [];
@@ -63,7 +63,8 @@ export class AppManager {
 
     // 包装器
     if (route.authorized) {
-      wrappers.unshift(this.renderAuthorized(route.id));
+      wrappers.unshift(this.renderAuthorized(route.id, route.redirect));
+      delete route.redirect;
     }
 
     // 去除 header / divider 上的关键信息
@@ -113,14 +114,19 @@ export class AppManager {
   //   return wrappers;
   // }
 
-  private renderAuthorized = (id: string): ComponentType<any> => {
+  private renderAuthorized = (id: string, redirectUrl: string): ComponentType<any> => {
     const CACHE_AUTHCOMPONENT_KEY = `AUTHCOMPONENT_${id}`;
     let authorized = this.cache.get(CACHE_AUTHCOMPONENT_KEY);
     if (!authorized) {
       this.cache.set(
         CACHE_AUTHCOMPONENT_KEY,
         (authorized = (props: any) => (
-          <AuthComponent ROUTEID={id} useRouteSelector={this.useRouteSelector} {...props} />
+          <AuthComponent
+            ROUTEID={id}
+            useRouteSelector={this.useRouteSelector}
+            redirectUrl={redirectUrl || '/login'}
+            {...props}
+          />
         ))
       );
     }
