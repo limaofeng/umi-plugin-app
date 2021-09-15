@@ -1,3 +1,12 @@
+## [0.1.17](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.16...v0.1.17) (2021-09-15)
+
+
+### Bug Fixes
+
+* 路由权限BUG ([389eef9](https://github.com/limaofeng/umi-plugin-app/commit/389eef91aa8cfaa317cd285ad9fa79d7750608ef))
+
+
+
 ## [0.1.16](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.15...v0.1.16) (2021-09-08)
 
 
