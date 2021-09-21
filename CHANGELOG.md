@@ -1,3 +1,12 @@
+## [0.1.18](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.17...v0.1.18) (2021-09-21)
+
+
+### Features
+
+* 菜单添加组件字段 ([6734fe8](https://github.com/limaofeng/umi-plugin-app/commit/6734fe8ad07776de4983a7d2c45e56638359b277))
+
+
+
 ## [0.1.17](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.16...v0.1.17) (2021-09-15)
 
 
