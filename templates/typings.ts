@@ -73,16 +73,13 @@ export interface MenuData {
   parent: {
     id: string;
   };
+  component?: NuwaComponent;
   children?: MenuData[];
 }
 
-export interface IRouteComponent {
+export interface NuwaComponent {
   template: string;
   blocks: any[];
-  routeWrapper?: {
-    template: string;
-    props: any[];
-  };
 }
 
 export interface IRoute {
@@ -90,7 +87,7 @@ export interface IRoute {
   path?: string;
   name?: string;
   type: 'route';
-  component?: IRouteComponent;
+  component?: NuwaComponent;
   configuration: any;
   application: IApplication;
   authorized: boolean;

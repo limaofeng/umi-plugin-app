@@ -35,7 +35,7 @@ export function getFieldValue(root: any, path: string) {
   return value;
 }
 
-export function tree<T>(
+export function tree<T = any>(
   list: T[],
   {
     idKey = 'id',

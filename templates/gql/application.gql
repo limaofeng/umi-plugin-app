@@ -20,6 +20,10 @@ query getApplication($id: ID!) {
       authorized
       hideInBreadcrumb
       enabled
+      component {
+        id
+        template
+      }
       parent {
         id
         path
