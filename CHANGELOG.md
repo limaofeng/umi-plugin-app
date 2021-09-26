@@ -1,3 +1,12 @@
+## [0.1.19](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.18...v0.1.19) (2021-09-26)
+
+
+### Features
+
+* 路由支持设置 layout 属性, layout = false 时，不应用布局组件 ([c741e23](https://github.com/limaofeng/umi-plugin-app/commit/c741e231565e4b48910cab961ad1c7744da0f435))
+
+
+
 ## [0.1.18](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.17...v0.1.18) (2021-09-21)
 
 
