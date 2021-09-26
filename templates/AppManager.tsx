@@ -67,11 +67,7 @@ export class AppManager {
       delete route.redirect;
     }
 
-    // 去除 header / divider 上的关键信息
-    if (route.type === 'header' || route.type === 'divider') {
-      route.path = '/';
-      route.name = route.type === 'header' ? route.name : '--*--';
-    }
+    route.layout = (route.layout as any)?.pure ? false : route.layout;
 
     if (!route.routes || route.routes.length === 0) {
       route.exact = true;

@@ -94,6 +94,7 @@ export interface IRoute {
   authority: string[];
   redirect: string;
   wrappers: any[];
+  layout?: { pure: boolean } | boolean;
   routes: any[] | undefined;
   exact: boolean;
   parent: any;

@@ -55,22 +55,25 @@ fragment ApplicationInfo on Application {
 
 fragment RouteParts on Route {
   id
+  icon
   name
   path
   type
+  index
   access
+  enabled
+  redirect
   authorized
   hideInBreadcrumb
-  redirect
-  component {
-    id
-    template
+  layout {
+    pure
   }
-  icon
-  index
-  enabled
   parent {
     id
     path
+  }
+  component {
+    id
+    template
   }
 }
