@@ -1,3 +1,12 @@
+## [0.1.21](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.20...v0.1.21) (2021-11-02)
+
+
+### Features
+
+* hideMenu 取代 displayAsideSecondaryPanel ([cfa69d6](https://github.com/limaofeng/umi-plugin-app/commit/cfa69d61cae03830d67db14526e684260db95245))
+
+
+
 ## [0.1.20](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.19...v0.1.20) (2021-11-02)
 
 
