@@ -67,7 +67,7 @@ fragment RouteParts on Route {
   hideInBreadcrumb
   layout {
     pure
-    displayAsideSecondaryPanel
+    hideMenu
   }
   parent {
     id
