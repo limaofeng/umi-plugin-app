@@ -1,3 +1,12 @@
+## [0.1.20](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.19...v0.1.20) (2021-11-02)
+
+
+### Features
+
+* 路由添加 displayAsideSecondaryPanel 字段 ([cfc2b14](https://github.com/limaofeng/umi-plugin-app/commit/cfc2b14f48de763e3624f8c0f42814d7e0c7c834))
+
+
+
 ## [0.1.19](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.18...v0.1.19) (2021-09-26)
 
 
