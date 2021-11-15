@@ -1,3 +1,12 @@
+## [0.1.22](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.21...v0.1.22) (2021-11-15)
+
+
+### Bug Fixes
+
+*  优化动态路由合逻辑 ([23d0fbe](https://github.com/limaofeng/umi-plugin-app/commit/23d0fbedac8348a69b34899a04d679ed6a1db879))
+
+
+
 ## [0.1.21](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.20...v0.1.21) (2021-11-02)
 
 
