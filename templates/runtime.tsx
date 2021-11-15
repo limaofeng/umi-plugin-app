@@ -1,6 +1,5 @@
 import React from 'react';
 
-import { merge } from 'lodash';
 import { createLogger } from 'redux-logger';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
@@ -18,20 +17,7 @@ import * as libraries from './autoImportLibrary';
 
 const logging = process.env.NODE_ENV === 'development';
 
-const authRoutes = {};
 let extraRoutes: any[] = [];
-
-function ergodicRoutes(routes: any[], authKey: any, authority: any) {
-  routes.forEach(element => {
-    if (element.path === authKey) {
-      if (!element.authority) element.authority = []; // eslint-disable-line
-      Object.assign(element.authority, authority || []);
-    } else if (element.routes) {
-      ergodicRoutes(element.routes, authKey, authority);
-    }
-    return element;
-  });
-}
 
 async function loadRoutes() {
   const {
@@ -55,9 +41,8 @@ async function loadRoutes() {
 }
 
 export const patchRoutes = ({ routes }: any) => {
-  routes.splice(1);
-  Object.keys(authRoutes).forEach(authKey => ergodicRoutes(routes, authKey, authRoutes[authKey].authority));
-  merge(routes, extraRoutes);
+  const insertIndex = routes.findIndex(item => item.path === '/');
+  routes.splice(insertIndex, 0, ...extraRoutes);
 };
 
 export const rootContainer = (container: any) => {
