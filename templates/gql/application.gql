@@ -23,6 +23,10 @@ query getApplication($id: ID!) {
       component {
         id
         template
+        blocks {
+          key
+          props
+        }
       }
       parent {
         id
@@ -39,7 +43,10 @@ subscription subscibeUpdateRoute {
     component {
       id
       template
-      props
+      blocks {
+        key
+        props
+      }
     }
   }
 }
@@ -76,5 +83,9 @@ fragment RouteParts on Route {
   component {
     id
     template
+    blocks {
+      key
+      props
+    }
   }
 }
