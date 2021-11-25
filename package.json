@@ -59,13 +59,11 @@
     }
   ],
   "dependencies": {
-    "@asany/icons": "^0.1.14",
     "classnames": "^2.3.1",
     "lodash": "^4.17.21",
     "path-to-regexp": "^6.2.0",
     "redux-logger": "^3.0.6",
-    "redux-persist": "^6.0.0",
-    "sunmao": "^0.2.7"
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",
