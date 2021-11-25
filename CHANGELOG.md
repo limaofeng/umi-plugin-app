@@ -1,3 +1,12 @@
+## [0.1.24](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.23...v0.1.24) (2021-11-25)
+
+
+### Bug Fixes
+
+* props 转 blocks ([ddd2768](https://github.com/limaofeng/umi-plugin-app/commit/ddd2768b1a8c7d1177840bd0cfb16455e2b267a3))
+
+
+
 ## [0.1.23](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.22...v0.1.23) (2021-11-25)
 
 
