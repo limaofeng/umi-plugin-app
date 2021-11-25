@@ -80,6 +80,7 @@ export interface MenuData {
 export interface NuwaComponent {
   template: string;
   blocks: any[];
+  wrappers: any[];
 }
 
 export interface IRoute {

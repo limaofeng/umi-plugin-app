@@ -44,15 +44,16 @@ interface RouteComponentProps {
   [key: string]: any;
 }
 
-export function RouteWrapperComponent({ ROUTEID: id, useRouteSelector, ...props }: RouteComponentProps) {
-  const routeWrapper = useRouteSelector(id, state => state.routes.get(id)?.component?.routeWrapper);
-  const Component = useReactComponent(routeWrapper!.template, routeWrapper!.props, { id: `${id}_wrapper` });
-  return <Component {...props} />;
-}
+// TODO: 不支持 wrappers
+// export function RouteWrapperComponent({ ROUTEID: id, useRouteSelector, ...props }: RouteComponentProps) {
+//   const routeWrapper = useRouteSelector(id, state => state.routes.get(id)?.component?.routeWrapper);
+//   const Component = useReactComponent(routeWrapper!.template, routeWrapper!.props, { id: `${id}_wrapper` });
+//   return <Component {...props} />;
+// }
 
 export default function RouteComponent({ ROUTEID: id, useRouteSelector, ...props }: RouteComponentProps) {
   const component = useRouteSelector(id, state => state.routes.get(id)?.component);
-  const Component = useReactComponent(component!.template, component!.props, {
+  const Component = useReactComponent(component!.template, component!.blocks, {
     id,
   });
   return <Component {...props} />;
