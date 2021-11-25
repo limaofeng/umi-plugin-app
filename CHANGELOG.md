@@ -1,3 +1,12 @@
+## [0.1.25](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.24...v0.1.25) (2021-11-25)
+
+
+### Bug Fixes
+
+*  去掉不合时宜的依赖 ([94c41ad](https://github.com/limaofeng/umi-plugin-app/commit/94c41ad0a39795e3e97eb0a25b7335c58051a135))
+
+
+
 ## [0.1.24](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.23...v0.1.24) (2021-11-25)
 
 
