@@ -1,3 +1,12 @@
+## [0.1.23](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.22...v0.1.23) (2021-11-25)
+
+
+### Features
+
+* 查询接口返回组件配置 ([6c6f479](https://github.com/limaofeng/umi-plugin-app/commit/6c6f4790d3f1b27d82fd3f927488aa62afcf0e33))
+
+
+
 ## [0.1.22](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.21...v0.1.22) (2021-11-15)
 
 
