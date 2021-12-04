@@ -1,3 +1,12 @@
+## [0.1.26](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.25...v0.1.26) (2021-12-04)
+
+
+### Features
+
+* 菜单去掉  authorized, hideInBreadcrumb, enabled 字段 ([03f4cf6](https://github.com/limaofeng/umi-plugin-app/commit/03f4cf6b9736ec3f3c78de1e44e722a404315beb))
+
+
+
 ## [0.1.25](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.24...v0.1.25) (2021-11-25)
 
 
