@@ -11,27 +11,7 @@ query getApplication($id: ID!) {
       ...RouteParts
     }
     menus {
-      id
-      icon
-      name
-      path
-      type
-      index
-      authorized
-      hideInBreadcrumb
-      enabled
-      component {
-        id
-        template
-        blocks {
-          key
-          props
-        }
-      }
-      parent {
-        id
-        path
-      }
+      ...MenuParts
     }
   }
 }
@@ -58,6 +38,27 @@ fragment ApplicationInfo on Application {
   enabled
   description
   clientId
+}
+
+fragment MenuParts on Menu {
+  id
+  icon
+  name
+  path
+  type
+  index
+  component {
+    id
+    template
+    blocks {
+      key
+      props
+    }
+  }
+  parent {
+    id
+    path
+  }
 }
 
 fragment RouteParts on Route {
