@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import Sunmao from 'sunmao';
 
-import { IApplication } from './typings';
+import { CurrentUser, IApplication } from './typings';
 
 export { default as AppManager, useRouteSelector } from './AppManager';
 export { default as RouteComponent } from './components/RouteComponent';
@@ -12,5 +12,9 @@ export const sunmao = new Sunmao();
 export const clientId = '{{id}}';
 
 export const useApp = function(): IApplication {
-  return useSelector((app: any) => app.global.application);
+  return useSelector((state: any) => state.global.application);
+};
+
+export const useCurrentuser = function(): CurrentUser {
+  return useSelector((state: any) => state.auth.currentUser);
 };
