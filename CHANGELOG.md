@@ -1,3 +1,12 @@
+## [0.1.28](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.27...v0.1.28) (2021-12-06)
+
+
+### Features
+
+* 解决自动登录 BUG ([9d91963](https://github.com/limaofeng/umi-plugin-app/commit/9d91963a91c74ea9bd9a54f415286332bce107c9))
+
+
+
 ## [0.1.27](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.26...v0.1.27) (2021-12-06)
 
 
