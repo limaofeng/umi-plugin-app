@@ -1,3 +1,12 @@
+## [0.1.27](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.26...v0.1.27) (2021-12-06)
+
+
+### Features
+
+* 添加 useCurrentuser 函数 ([1922871](https://github.com/limaofeng/umi-plugin-app/commit/1922871ce2dc74dad2ef20fa5fb47a1b00e175ed))
+
+
+
 ## [0.1.26](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.25...v0.1.26) (2021-12-04)
 
 
