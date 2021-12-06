@@ -163,16 +163,15 @@ const AuthModel: AuthModelType = {
             status: 'pending',
           },
         });
-        const json = localStorage.getItem('loginCredentials');
-        if (!json) {
-          // yield put({ type: 'redirect' });
+        const credentials = localStorage.getItem('credentials');
+        if (!credentials) {
+          console.warn('credentials is null');
           return;
         }
-        const loginCredentials = JSON.parse(json);
         // 获取凭证
         yield put({
           type: 'saveCredential',
-          payload: loginCredentials,
+          payload: credentials,
         });
         // 获取用户
         yield put({ type: 'loadCurrentUser' });
@@ -218,9 +217,9 @@ const AuthModel: AuthModelType = {
   reducers: {
     saveCredential(state: any, { payload }: any) {
       if (payload) {
-        localStorage.setItem('loginCredentials', JSON.stringify(payload));
+        localStorage.setItem('credentials', payload);
       } else {
-        localStorage.removeItem('loginCredentials');
+        localStorage.removeItem('credentials');
       }
       return { ...state, credential: payload };
     },
