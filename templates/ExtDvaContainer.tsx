@@ -11,7 +11,7 @@ import { getDvaApp } from 'umi';
 import { IconProvider } from '@asany/icons';
 import { ShortcutProvider } from '@asany/shortcuts';
 
-import keymap from '../keymap';
+import keymap from '../../keymap';
 
 import { sunmao } from './exports';
 import auth from './models/auth';
