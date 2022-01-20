@@ -9,6 +9,9 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { PersistGate } from 'redux-persist/integration/react';
 import { getDvaApp } from 'umi';
 import { IconProvider } from '@asany/icons';
+import { ShortcutProvider } from '@asany/shortcuts';
+
+import keymap from '../keymap';
 
 import { sunmao } from './exports';
 import auth from './models/auth';
@@ -44,11 +47,13 @@ class ExtDvaContainer extends React.Component<ExtDvaContainerProps> {
     return (
       <PersistGate persistor={this.store.persistor} loading={<div>加载组件</div>}>
         <IconProvider>
-          <SunmaoProvider sunmao={this.sunmao}>
-            <ConfigProvider locale={zhCN}>
-              <DndProvider backend={HTML5Backend}>{children}</DndProvider>
-            </ConfigProvider>
-          </SunmaoProvider>
+          <ShortcutProvider keymap={keymap}>
+            <SunmaoProvider sunmao={this.sunmao}>
+              <ConfigProvider locale={zhCN}>
+                <DndProvider backend={HTML5Backend}>{children}</DndProvider>
+              </ConfigProvider>
+            </SunmaoProvider>
+          </ShortcutProvider>
         </IconProvider>
       </PersistGate>
     );
