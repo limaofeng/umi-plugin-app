@@ -1,3 +1,12 @@
+## [0.1.29](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.28...v0.1.29) (2022-01-20)
+
+
+### Features
+
+* 集成 @asany/shortcuts ([da794fa](https://github.com/limaofeng/umi-plugin-app/commit/da794fa0ef4c9f09a62b8489f1ada26d0cd4fa07))
+
+
+
 ## [0.1.28](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.27...v0.1.28) (2021-12-06)
 
 
