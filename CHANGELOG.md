@@ -1,3 +1,12 @@
+## [0.1.30](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.29...v0.1.30) (2022-01-20)
+
+
+### Bug Fixes
+
+* keymap 文件位置计算错误 ([69b053e](https://github.com/limaofeng/umi-plugin-app/commit/69b053e2903a45664c9631b5e25d9263e68009c3))
+
+
+
 ## [0.1.29](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.28...v0.1.29) (2022-01-20)
 
 
