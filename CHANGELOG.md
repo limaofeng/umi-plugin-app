@@ -1,3 +1,12 @@
+## [0.1.31](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.30...v0.1.31) (2022-04-11)
+
+
+### Features
+
+* 查询菜单时，返回 hideInMenu 字段 ([3ffe5c7](https://github.com/limaofeng/umi-plugin-app/commit/3ffe5c70446bea9619463da803ba418fb8e420a8))
+
+
+
 ## [0.1.30](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.29...v0.1.30) (2022-01-20)
 
 
