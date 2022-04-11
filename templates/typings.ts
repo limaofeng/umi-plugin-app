@@ -68,7 +68,9 @@ export interface MenuData {
   type: string;
   index: number;
   authorized: boolean;
+  hideInMenu: boolean;
   hideInBreadcrumb: boolean;
+  hideChildrenInMenu: boolean;
   enabled: boolean;
   parent: {
     id: string;
