@@ -1,3 +1,12 @@
+## [0.1.32](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.31...v0.1.32) (2022-04-11)
+
+
+### Bug Fixes
+
+* 修复 ts 类型提示 ([f8769ac](https://github.com/limaofeng/umi-plugin-app/commit/f8769ac87b285c4d92f5ee05b18e8f16d952f0ef))
+
+
+
 ## [0.1.31](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.30...v0.1.31) (2022-04-11)
 
 
