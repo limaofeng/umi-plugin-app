@@ -47,6 +47,9 @@ fragment MenuParts on Menu {
   path
   type
   index
+  hideInMenu
+  hideInBreadcrumb
+  hideChildrenInMenu
   component {
     id
     template
