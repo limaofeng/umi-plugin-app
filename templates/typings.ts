@@ -76,7 +76,7 @@ export interface MenuData {
     id: string;
   };
   component?: NuwaComponent;
-  children?: MenuData[];
+  routes?: MenuData[];
 }
 
 export interface NuwaComponent {
