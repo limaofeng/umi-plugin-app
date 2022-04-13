@@ -1,3 +1,12 @@
+## [0.1.34](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.33...v0.1.34) (2022-04-13)
+
+
+### Features
+
+* 路由添加 key 字段 ([4441b61](https://github.com/limaofeng/umi-plugin-app/commit/4441b61c9e3a295f53b4bd10d0fdd188e2704d6b))
+
+
+
 ## [0.1.33](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.32...v0.1.33) (2022-04-12)
 
 
