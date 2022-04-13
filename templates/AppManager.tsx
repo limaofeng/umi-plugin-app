@@ -33,7 +33,7 @@ export class AppManager {
       const routeTree = utils.tree<IRoute>(
         routes.map((item: IRoute) => ({
           ...item,
-          key: item.key,
+          key: item.id,
           routes: [],
         })),
         {
