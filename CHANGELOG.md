@@ -1,3 +1,12 @@
+## [0.1.35](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.34...v0.1.35) (2022-04-13)
+
+
+### Bug Fixes
+
+* 路由 key 赋值错误 ([45398d2](https://github.com/limaofeng/umi-plugin-app/commit/45398d20aa72d753777aa07da674183555f72cad))
+
+
+
 ## [0.1.34](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.33...v0.1.34) (2022-04-13)
 
 
