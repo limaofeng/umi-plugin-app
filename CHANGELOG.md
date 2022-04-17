@@ -1,3 +1,12 @@
+## [0.1.38](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.37...v0.1.38) (2022-04-17)
+
+
+### Bug Fixes
+
+* useCurrentuser 可能返回 undefined ([7658301](https://github.com/limaofeng/umi-plugin-app/commit/7658301a67e3b8d511ec3c9537ca935854189664))
+
+
+
 ## [0.1.37](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.36...v0.1.37) (2022-04-17)
 
 
