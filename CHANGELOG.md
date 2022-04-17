@@ -1,3 +1,12 @@
+## [0.1.37](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.36...v0.1.37) (2022-04-17)
+
+
+### Features
+
+* 用户信息中返回账号信息 ([97e5502](https://github.com/limaofeng/umi-plugin-app/commit/97e5502377f36c3fda481d7d916a493c40daa507))
+
+
+
 ## [0.1.36](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.35...v0.1.36) (2022-04-17)
 
 
