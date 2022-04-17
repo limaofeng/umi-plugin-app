@@ -37,6 +37,7 @@ query viewer {
     avatar
     phone
     email
+    account
     signature
     authorities
   }
