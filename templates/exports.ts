@@ -15,6 +15,6 @@ export const useApp = function(): IApplication {
   return useSelector((state: any) => state.global.application);
 };
 
-export const useCurrentuser = function(): CurrentUser {
+export const useCurrentuser = function(): CurrentUser | undefined {
   return useSelector((state: any) => state.auth.currentUser);
 };
