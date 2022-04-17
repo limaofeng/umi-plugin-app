@@ -45,6 +45,14 @@ export interface CurrentUser {
    * 令牌
    */
   token: string;
+  /**
+   * 账户
+   */
+  account: string;
+  /**
+   *  其他属性
+   */
+  [key: string]: any;
 }
 
 export interface IApplication {
