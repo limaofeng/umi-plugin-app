@@ -1,3 +1,12 @@
+## [0.1.36](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.35...v0.1.36) (2022-04-17)
+
+
+### Features
+
+* 类型完善 CurrentUser ([835cb16](https://github.com/limaofeng/umi-plugin-app/commit/835cb1657f7ee76ab2a8f9926b03035d0311d166))
+
+
+
 ## [0.1.35](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.34...v0.1.35) (2022-04-13)
 
 
