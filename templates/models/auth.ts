@@ -49,6 +49,7 @@ export async function loginWithUsername(username: string, password: string) {
   const dvaApp = getDvaApp();
   console.log('getDvaApp', dvaApp);
   localStorage.setItem('credentials', login.token);
+  tokenHelper.setToken(login.token);
   return login;
 }
 
@@ -218,8 +219,10 @@ const AuthModel: AuthModelType = {
     saveCredential(state: any, { payload }: any) {
       if (payload) {
         localStorage.setItem('credentials', payload);
+        tokenHelper.setToken(payload);
       } else {
         localStorage.removeItem('credentials');
+        tokenHelper.resetToken();
       }
       return { ...state, credential: payload };
     },
