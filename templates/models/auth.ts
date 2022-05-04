@@ -1,6 +1,6 @@
 import { routerRedux } from 'dva';
 import { getDvaApp } from 'umi';
-import { parse } from 'qs';
+import { parse, stringify } from 'qs';
 import { Effect, Reducer, Subscription } from 'umi';
 
 import { client } from '../../apollo';
@@ -107,7 +107,14 @@ const AuthModel: AuthModelType = {
         },
       });
       // 跳转登录页
-      yield put({ type: 'redirect' });
+      yield put(
+        routerRedux.push({
+          pathname: `/login`,
+          search: stringify({
+            redirect: window.location.href.substring(window.location.origin.length),
+          }),
+        })
+      );
     },
     *loadCurrentUser(_: any, { select, call, put }: any) {
       try {
