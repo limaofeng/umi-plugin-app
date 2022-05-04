@@ -1,3 +1,12 @@
+## [0.1.39](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.38...v0.1.39) (2022-05-04)
+
+
+### Bug Fixes
+
+* 登录成功后依然出现 token  无效的问题 ([7ed3edd](https://github.com/limaofeng/umi-plugin-app/commit/7ed3edd06000d2be17977b7bc7c911c018f958d6))
+
+
+
 ## [0.1.38](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.37...v0.1.38) (2022-04-17)
 
 
