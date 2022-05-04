@@ -1,3 +1,12 @@
+## [0.1.40](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.39...v0.1.40) (2022-05-04)
+
+
+### Bug Fixes
+
+* 退出页面转向失败的BUG ([42d20b2](https://github.com/limaofeng/umi-plugin-app/commit/42d20b2d7347a5f4b84793b3bca3fd5aa1848252))
+
+
+
 ## [0.1.39](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.38...v0.1.39) (2022-05-04)
 
 
