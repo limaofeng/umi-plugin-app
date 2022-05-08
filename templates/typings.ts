@@ -22,7 +22,7 @@ export type CurrentUser = {
   /** 权限 */
   authorities: string[];
   /** 头像 */
-  avatar?: string | FileObject;
+  avatar?: string | FileObject | any;
   /** 自我介绍 */
   bio?: string;
   /** 生日 */
