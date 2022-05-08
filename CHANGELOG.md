@@ -1,3 +1,12 @@
+## [0.1.42](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.41...v0.1.42) (2022-05-08)
+
+
+### Bug Fixes
+
+* 修复类型定义 ([d8d78e6](https://github.com/limaofeng/umi-plugin-app/commit/d8d78e6cdf78b2468674974f356500bbd1836e71))
+
+
+
 ## [0.1.41](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.40...v0.1.41) (2022-05-08)
 
 
