@@ -1,3 +1,12 @@
+## [0.1.45](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.44...v0.1.45) (2022-05-08)
+
+
+### Bug Fixes
+
+* 移除 auth 遗留 ([c761b34](https://github.com/limaofeng/umi-plugin-app/commit/c761b34f43fb7ee2ff9690d9f607e7a9b380e774))
+
+
+
 ## [0.1.44](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.43...v0.1.44) (2022-05-08)
 
 
