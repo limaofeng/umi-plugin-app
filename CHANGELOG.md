@@ -1,3 +1,12 @@
+## [0.1.46](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.45...v0.1.46) (2022-05-08)
+
+
+### Bug Fixes
+
+*  优化退出逻辑 ([c37c16b](https://github.com/limaofeng/umi-plugin-app/commit/c37c16b0a73f6bd3e0115a8bd8be78334a3e1b90))
+
+
+
 ## [0.1.45](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.44...v0.1.45) (2022-05-08)
 
 
