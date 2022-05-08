@@ -1,3 +1,12 @@
+## [0.1.41](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.40...v0.1.41) (2022-05-08)
+
+
+### Features
+
+* viewer 返回字段添加额外的字段 ([fecfbef](https://github.com/limaofeng/umi-plugin-app/commit/fecfbef1f065b08c0c5b2fa06d6bd3a5cc6a2a31))
+
+
+
 ## [0.1.40](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.39...v0.1.40) (2022-05-04)
 
 
