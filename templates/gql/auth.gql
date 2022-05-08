@@ -37,6 +37,11 @@ query viewer {
     avatar
     phone
     email
+    sex
+    bio
+    birthday
+    company
+    location
     account
     signature
     authorities
