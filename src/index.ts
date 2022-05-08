@@ -39,7 +39,6 @@ export default function(api: IApi) {
   });
 
   const files = [
-    'models/auth.ts',
     'models/global.ts',
     'runtime.tsx',
     'ExtDvaContainer.tsx',
