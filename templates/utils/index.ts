@@ -1,3 +1,14 @@
+import { client } from '../../apollo';
+import tokenHelper from '../../apollo/TokenHelper';
+
+import { 
+  viewer as LOAD_CURRENTUSER, 
+  loginByUsername as LOGIN_BY_USERNAME,
+  logout as LOGOUT
+ } from '../gql/auth.gql';
+
+import type { CurrentUser } from '../typings';
+
 export interface TreeOptions<T> {
   idKey: string;
   pidKey: string;
@@ -80,4 +91,47 @@ export function tree<T = any>(
   } finally {
     console.log('list -> tree 耗时', new Date().getTime() - start, 'ms');
   }
+}
+
+export async function loadCurrentuser(): Promise<CurrentUser> {
+  const token = localStorage.getItem('credentials');
+  if (!tokenHelper.withToken() && token) {
+    tokenHelper.setToken(token);
+  }
+  const {
+    data: { viewer },
+  } = await client.query({
+    query: LOAD_CURRENTUSER,
+    fetchPolicy: 'no-cache',
+  });
+  return viewer;
+}
+
+export async function loginWithUsername(username: string, password: string) {
+  const {
+    data: { login },
+  } = await delay(
+    client.mutate({
+      mutation: LOGIN_BY_USERNAME,
+      variables: {
+        clientId: '{{id}}',
+        username,
+        password,
+      },
+      fetchPolicy: 'no-cache',
+    }),
+    1000
+  );
+  localStorage.setItem('credentials', login.token);
+  tokenHelper.setToken(login.token);
+  return login;
+}
+
+export async function logout() {
+  await client.mutate({
+    mutation: LOGOUT,
+    fetchPolicy: 'no-cache',
+  }),
+  localStorage.removeItem('credentials');
+  tokenHelper.resetToken();
 }

@@ -1,3 +1,7 @@
+mutation logout {
+  logout
+}
+
 mutation loginByWeiXin($code: String!) {
   login(loginType: weixin, authCode: $code) {
     uid

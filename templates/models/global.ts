@@ -1,5 +1,6 @@
 import { Reducer } from 'umi';
-import { Dispatch } from 'redux';
+
+import { logout } from '../utils';
 
 export interface Dingtalk {
   corpId: string;
@@ -59,8 +60,13 @@ const GlobalModel: GlobalModelType = {
     },
   },
   subscriptions: {
-    async setup({ dispatch }: { dispatch: Dispatch }) {
+    async setup({ dispatch, history }) {
       dispatch({ type: 'saveCurrentApplication', payload: currentApplication });
+      history.listen(({ pathname, search }): void => {
+        if (pathname === '/logout') {
+          logout();
+        }
+      });
     },
   },
 };
