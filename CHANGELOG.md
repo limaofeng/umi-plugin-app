@@ -1,3 +1,12 @@
+## [0.1.43](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.42...v0.1.43) (2022-05-08)
+
+
+### Bug Fixes
+
+* 去掉 useCurrentuser ([99314d7](https://github.com/limaofeng/umi-plugin-app/commit/99314d7006e4ef19e89458b84f74c6f1a85b6d13))
+
+
+
 ## [0.1.42](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.41...v0.1.42) (2022-05-08)
 
 
