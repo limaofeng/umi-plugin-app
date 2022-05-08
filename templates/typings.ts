@@ -4,56 +4,48 @@ export type UseRouteSelectorFunc = <Selected>(
   equalityFn?: EqualityFn<Selected>
 ) => Selected;
 
-export interface CurrentUser {
-  /**
-   * 用户ID
-   */
-  uid: string;
-  /**
-   * 名称
-   */
+type FileObject = {
+  id: string;
+  /** 文件 MIME 类型 */
+  mimeType?: string;
+  /** 文件名 */
   name: string;
-  /**
-   * 称号
-   */
-  title: string;
-  /**
-   * 头像
-   */
-  avatar: any;
-  /**
-   * 邮箱
-   */
-  email: string;
-  /**
-   * 签名
-   */
-  signature: string;
-  /**
-   * 组名
-   */
-  group: string;
-  /**
-   * 电话
-   */
-  phone: string;
-  /**
-   * 权限
-   */
-  authorities: [string];
-  /**
-   * 令牌
-   */
-  token: string;
-  /**
-   * 账户
-   */
+  /** 路径 */
+  path: string;
+  /** 文件大小 单位：bytes */
+  size?: number;
+};
+
+export type CurrentUser = {
+  /** 账号 */
   account: string;
-  /**
-   *  其他属性
-   */
-  [key: string]: any;
-}
+  /** 权限 */
+  authorities: string[];
+  /** 头像 */
+  avatar?: string | FileObject;
+  /** 自我介绍 */
+  bio?: string;
+  /** 生日 */
+  birthday?: number | string;
+  /** 公司 */
+  company?: string;
+  /** 邮箱 */
+  email?: string;
+  /** 位置 */
+  location?: string;
+  /** 名称 */
+  name?: string;
+  /** 电话 */
+  phone?: string;
+  /** 性别 */
+  sex?: 'female' | 'male';
+  /** 称号 */
+  title?: string;
+  /** 用户类型 */
+  type: string;
+  /** 用户ID */
+  uid: string;
+};
 
 export interface IApplication {
   id: string;
