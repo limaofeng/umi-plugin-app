@@ -14,7 +14,6 @@ import { ShortcutProvider } from '@asany/shortcuts';
 import keymap from '../../keymap';
 
 import { sunmao } from './exports';
-import auth from './models/auth';
 import global from './models/global';
 
 interface ExtDvaContainerProps {
@@ -30,7 +29,6 @@ class ExtDvaContainer extends React.Component<ExtDvaContainerProps> {
     super(props);
     const dvaApp = getDvaApp();
     // 添加插件默认支持的 Model
-    dvaApp.model(auth);
     dvaApp.model(global);
     this.store = dvaApp._store;
     this.sunmao = sunmao;
