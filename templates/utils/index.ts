@@ -128,10 +128,11 @@ export async function loginWithUsername(username: string, password: string) {
 }
 
 export async function logout() {
-  await client.mutate({
+  client.mutate({
     mutation: LOGOUT,
     fetchPolicy: 'no-cache',
   }),
+  await sleep(300);
   localStorage.removeItem('credentials');
   tokenHelper.resetToken();
 }

@@ -60,13 +60,8 @@ const GlobalModel: GlobalModelType = {
     },
   },
   subscriptions: {
-    async setup({ dispatch, history }) {
+    async setup({ dispatch }) {
       dispatch({ type: 'saveCurrentApplication', payload: currentApplication });
-      history.listen(({ pathname, search }): void => {
-        if (pathname === '/logout') {
-          logout();
-        }
-      });
     },
   },
 };
