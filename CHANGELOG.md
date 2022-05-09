@@ -1,3 +1,12 @@
+## [0.1.47-wap](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.47...v0.1.47-wap) (2022-05-09)
+
+
+### Bug Fixes
+
+* 去掉  icons 与 shortcuts ([9b9284b](https://github.com/limaofeng/umi-plugin-app/commit/9b9284b0dda58418880f6d4f2a998db7ab56fce9))
+
+
+
 ## [0.1.47](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.46...v0.1.47) (2022-05-08)
 
 
