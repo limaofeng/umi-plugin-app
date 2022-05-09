@@ -5,13 +5,9 @@ import { ConfigProvider } from 'antd';
 import Sunmao, { ILibraryDefinition, SunmaoProvider } from 'sunmao';
 import zhCN from 'antd/es/locale/zh_CN';
 import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { TouchBackend } from 'react-dnd-touch-backend';
 import { PersistGate } from 'redux-persist/integration/react';
 import { getDvaApp } from 'umi';
-import { IconProvider } from '@asany/icons';
-import { ShortcutProvider } from '@asany/shortcuts';
-
-import keymap from '../../keymap';
 
 import { sunmao } from './exports';
 import global from './models/global';
@@ -44,15 +40,11 @@ class ExtDvaContainer extends React.Component<ExtDvaContainerProps> {
     const { children } = this.props;
     return (
       <PersistGate persistor={this.store.persistor} loading={<div>加载组件</div>}>
-        <IconProvider>
-          <ShortcutProvider keymap={keymap}>
-            <SunmaoProvider sunmao={this.sunmao}>
-              <ConfigProvider locale={zhCN}>
-                <DndProvider backend={HTML5Backend}>{children}</DndProvider>
-              </ConfigProvider>
-            </SunmaoProvider>
-          </ShortcutProvider>
-        </IconProvider>
+        <SunmaoProvider sunmao={this.sunmao}>
+          <ConfigProvider locale={zhCN}>
+            <DndProvider backend={TouchBackend}>{children}</DndProvider>
+          </ConfigProvider>
+        </SunmaoProvider>
       </PersistGate>
     );
   }
