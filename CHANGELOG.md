@@ -1,3 +1,12 @@
+## [0.1.48](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.47...v0.1.48) (2022-05-12)
+
+
+### Bug Fixes
+
+* 如果提前结束退出逻辑，可能会导致 logout 的 token 被吊销 ([f986392](https://github.com/limaofeng/umi-plugin-app/commit/f986392ac366a7ec7ba16f89cc419bce60bb48c2))
+
+
+
 ## [0.1.47](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.46...v0.1.47) (2022-05-08)
 
 
