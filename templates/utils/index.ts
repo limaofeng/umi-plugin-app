@@ -129,10 +129,13 @@ export async function loginWithUsername(username: string, password: string) {
 
 export async function logout() {
   try {
-    await client.mutate({
-      mutation: LOGOUT,
-      fetchPolicy: 'no-cache',
-    });
+    await Promise.race([
+      client.mutate({
+        mutation: LOGOUT,
+        fetchPolicy: 'no-cache',
+      }),
+      sleep(300)
+    ]);
   } finally {
     localStorage.removeItem('credentials');
     tokenHelper.resetToken();
