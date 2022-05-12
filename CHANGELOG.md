@@ -1,3 +1,12 @@
+## [0.1.49](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.48...v0.1.49) (2022-05-12)
+
+
+### Bug Fixes
+
+* 添加暴露 logout ([65a88eb](https://github.com/limaofeng/umi-plugin-app/commit/65a88eb5c0ebe2ffeace1cbb70a496686129d3c4))
+
+
+
 ## [0.1.48](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.47...v0.1.48) (2022-05-12)
 
 
