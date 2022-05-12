@@ -1,11 +1,11 @@
 import { client } from '../../apollo';
 import tokenHelper from '../../apollo/TokenHelper';
 
-import { 
-  viewer as LOAD_CURRENTUSER, 
+import {
+  viewer as LOAD_CURRENTUSER,
   loginByUsername as LOGIN_BY_USERNAME,
   logout as LOGOUT
- } from '../gql/auth.gql';
+} from '../gql/auth.gql';
 
 import type { CurrentUser } from '../typings';
 
@@ -128,11 +128,13 @@ export async function loginWithUsername(username: string, password: string) {
 }
 
 export async function logout() {
-  client.mutate({
-    mutation: LOGOUT,
-    fetchPolicy: 'no-cache',
-  }),
-  await sleep(300);
-  localStorage.removeItem('credentials');
-  tokenHelper.resetToken();
+  try {
+    await client.mutate({
+      mutation: LOGOUT,
+      fetchPolicy: 'no-cache',
+    });
+  } finally {
+    localStorage.removeItem('credentials');
+    tokenHelper.resetToken();
+  }
 }

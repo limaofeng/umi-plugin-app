@@ -1,7 +1,5 @@
 import { Reducer } from 'umi';
 
-import { logout } from '../utils';
-
 export interface Dingtalk {
   corpId: string;
 }
