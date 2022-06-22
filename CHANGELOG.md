@@ -1,3 +1,12 @@
+## [0.1.50](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.49...v0.1.50) (2022-06-22)
+
+
+### Bug Fixes
+
+* 忽略未启用的路由 ([903a4e4](https://github.com/limaofeng/umi-plugin-app/commit/903a4e43adb623e738d7b74737fa52c855283900))
+
+
+
 ## [0.1.49](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.48...v0.1.49) (2022-05-12)
 
 
