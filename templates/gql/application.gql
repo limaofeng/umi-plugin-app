@@ -7,7 +7,7 @@ query getApplication($id: ID!) {
     layoutRoute {
       ...RouteParts
     }
-    routes {
+    routes(filter:{ enabled: true}) {
       ...RouteParts
     }
     menus {
