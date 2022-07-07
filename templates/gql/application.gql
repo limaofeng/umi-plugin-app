@@ -97,4 +97,12 @@ fragment RouteParts on Route {
       props
     }
   }
+  breadcrumb {
+    id
+    template
+    blocks {
+      key
+      props
+    }
+  }
 }
