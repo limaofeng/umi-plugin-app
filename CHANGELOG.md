@@ -1,3 +1,12 @@
+## [0.1.52](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.51...v0.1.52) (2022-07-07)
+
+
+### Features
+
+* 查询应用数据时，返回 breadcrumb 组件信息 ([a692e4e](https://github.com/limaofeng/umi-plugin-app/commit/a692e4ef640a3309e7f6823759946df32b799d6c))
+
+
+
 ## [0.1.51](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.50...v0.1.51) (2022-07-07)
 
 
