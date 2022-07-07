@@ -1,3 +1,12 @@
+## [0.1.51](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.50...v0.1.51) (2022-07-07)
+
+
+### Features
+
+* 查询应用时，返回 dependencies 信息 ([42e37bb](https://github.com/limaofeng/umi-plugin-app/commit/42e37bb0e869a6a4779ad0968ac690f5eff026ba))
+
+
+
 ## [0.1.50](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.49...v0.1.50) (2022-06-22)
 
 
