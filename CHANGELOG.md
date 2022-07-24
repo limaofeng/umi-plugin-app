@@ -1,3 +1,12 @@
+## [0.1.53](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.52...v0.1.53) (2022-07-24)
+
+
+### Features
+
+*  插件 sunmao 变更为 @asany/sunmao ([512f721](https://github.com/limaofeng/umi-plugin-app/commit/512f7214f56ffc37546a1a58983408c9bd2b2961))
+
+
+
 ## [0.1.52](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.51...v0.1.52) (2022-07-07)
 
 
