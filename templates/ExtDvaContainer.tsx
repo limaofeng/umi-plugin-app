@@ -2,7 +2,7 @@
 import React from 'react';
 
 import { ConfigProvider } from 'antd';
-import Sunmao, { ILibraryDefinition, SunmaoProvider } from 'sunmao';
+import { ILibraryDefinition, Sunmao, SunmaoProvider } from '@asany/sunmao';
 import zhCN from 'antd/es/locale/zh_CN';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';

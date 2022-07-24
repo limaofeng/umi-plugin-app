@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useAccess } from 'umi';
-import { useReactComponent } from 'sunmao';
+import { useReactComponent } from '@asany/sunmao';
 import { Redirect } from 'react-router-dom';
 import { stringify } from 'qs';
 

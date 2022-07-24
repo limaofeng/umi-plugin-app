@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import Sunmao from 'sunmao';
+import { Sunmao } from '@asany/sunmao';
 
 import { IApplication } from './typings';
 

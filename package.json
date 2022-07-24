@@ -67,6 +67,7 @@
   },
   "devDependencies": {
     "@asany/shortcuts": "^0.1.1",
+    "@asany/sunmao": "^1.0.4",
     "@commitlint/cli": "^13.1.0",
     "@commitlint/config-conventional": "^13.1.0",
     "@size-limit/preset-small-lib": "^5.0.3",
