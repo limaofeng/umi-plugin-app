@@ -1,3 +1,12 @@
+## [0.1.55](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.54...v0.1.55) (2022-08-03)
+
+
+### Bug Fixes
+
+* 适配 apolloClient 导出 ([790e2d9](https://github.com/limaofeng/umi-plugin-app/commit/790e2d9c35d07dc91280861b3749b5aa48ab55a9))
+
+
+
 ## [0.1.54](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.53...v0.1.54) (2022-08-03)
 
 
