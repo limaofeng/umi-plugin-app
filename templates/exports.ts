@@ -5,7 +5,6 @@ import { IApplication } from './typings';
 
 export { default as AppManager, useRouteSelector } from './AppManager';
 export { default as RouteComponent } from './components/RouteComponent';
-export { loadCurrentuser, loginWithUsername, logout } from './utils';
 
 export const sunmao = new Sunmao();
 

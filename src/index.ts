@@ -42,7 +42,6 @@ export default function(api: IApi) {
     'models/global.ts',
     'runtime.tsx',
     'ExtDvaContainer.tsx',
-    'gql/auth.gql',
     'gql/application.gql',
     'gql/component.gql',
     'components/index.ts',
