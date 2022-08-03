@@ -1,3 +1,12 @@
+## [0.1.54](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.53...v0.1.54) (2022-08-03)
+
+
+### Features
+
+* 删除认证相关接口 ([66e50b3](https://github.com/limaofeng/umi-plugin-app/commit/66e50b3f26d430a3192359a0dda92b7339090caa))
+
+
+
 ## [0.1.53](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.52...v0.1.53) (2022-07-24)
 
 
