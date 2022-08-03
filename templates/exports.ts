@@ -10,6 +10,6 @@ export const sunmao = new Sunmao();
 
 export const clientId = '{{id}}';
 
-export const useApp = function (): IApplication {
+export const useApp = function(): IApplication {
   return useSelector((state: any) => state.global.application);
 };
