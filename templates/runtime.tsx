@@ -3,7 +3,7 @@ import React from 'react';
 import { createLogger } from 'redux-logger';
 import { persistReducer, persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
-import { client } from 'umi';
+import { apolloClient } from 'umi';
 
 import ExtDvaContainer from './ExtDvaContainer';
 import AppManager from './AppManager';
@@ -22,7 +22,7 @@ let extraRoutes: any[] = [];
 async function loadRoutes() {
   const {
     data: { app },
-  } = await client.query({
+  } = await apolloClient.query({
     query: GET_APPLICATION,
     variables: {
       id: '{{id}}',
@@ -46,7 +46,7 @@ export const patchRoutes = ({ routes }: any) => {
 };
 
 export const rootContainer = (container: any) => {
-  return React.createElement(ExtDvaContainer as any, { client, libraries }, container);
+  return React.createElement(ExtDvaContainer as any, { client: apolloClient, libraries }, container);
 };
 
 export const render = (oldRender: () => void) => {
