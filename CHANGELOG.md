@@ -1,3 +1,12 @@
+## [0.1.56](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.55...v0.1.56) (2023-07-10)
+
+
+### Features
+
+* 接口 filter 字段改为 where 重构修改 ([8274cd8](https://github.com/limaofeng/umi-plugin-app/commit/8274cd873b874ea28d083d9e43d755f32d0e6e2b))
+
+
+
 ## [0.1.55](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.54...v0.1.55) (2022-08-03)
 
 
