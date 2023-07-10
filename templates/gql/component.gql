@@ -1,5 +1,5 @@
-query components($filter: ComponentFilter) {
-  components(filter: $filter) {
+query components($where: ComponentWhereInput) {
+  components(where: $where) {
     id
     name
     type
