@@ -1,3 +1,12 @@
+## [0.1.57](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.56...v0.1.57) (2023-09-09)
+
+
+### Bug Fixes
+
+* 支持空组件 ([2295e8c](https://github.com/limaofeng/umi-plugin-app/commit/2295e8c2a0ed5f51216485b521e6cc9fbe4f55a6))
+
+
+
 ## [0.1.56](https://github.com/limaofeng/umi-plugin-app/compare/v0.1.55...v0.1.56) (2023-07-10)
 
 
