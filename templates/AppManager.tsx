@@ -73,6 +73,12 @@ export class AppManager {
     if (!route.routes || route.routes.length === 0) {
       route.exact = true;
     }
+
+    // 当为空组件，但又设置了包装器时，将包装器作为组件
+    if (!component && wrappers.length) {
+      return { ...route, component: wrappers[0] };
+    }
+
     return { ...route, component, wrappers };
   };
 
