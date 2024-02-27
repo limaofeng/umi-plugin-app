@@ -1,0 +1,15 @@
+query components($where: ComponentWhereInput) {
+  components(where: $where) {
+    id
+    name
+    type
+    template
+    platforms
+    props {
+      name
+      label
+      defaultValue
+    }
+    template
+  }
+}

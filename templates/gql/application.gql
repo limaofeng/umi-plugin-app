@@ -1,0 +1,108 @@
+query getApplication($id: ID!) {
+  app: application(id: $id) {
+    ...ApplicationInfo
+    loginRoute {
+      ...RouteParts
+    }
+    layoutRoute {
+      ...RouteParts
+    }
+    routes(where: { enabled: true }) {
+      ...RouteParts
+    }
+    menus {
+      ...MenuParts
+    }
+    dependencies {
+      id
+      name
+      value
+    }
+  }
+}
+
+subscription subscibeUpdateRoute {
+  updateRoute {
+    id
+    name
+    component {
+      id
+      template
+      blocks {
+        key
+        props
+      }
+    }
+  }
+}
+
+fragment ApplicationInfo on Application {
+  id
+  name
+  logo
+  enabled
+  description
+  clientId
+}
+
+fragment MenuParts on Menu {
+  id
+  icon
+  name
+  path
+  type
+  index
+  hideInMenu
+  hideInBreadcrumb
+  hideChildrenInMenu
+  component {
+    id
+    template
+    blocks {
+      key
+      props
+    }
+  }
+  parent {
+    id
+    path
+  }
+}
+
+fragment RouteParts on Route {
+  id
+  icon
+  name
+  path
+  type
+  index
+  access
+  enabled
+  redirect
+  authorized
+  hideInBreadcrumb
+  layout {
+    pure
+    hideMenu
+  }
+  parent {
+    id
+    path
+  }
+  component {
+    id
+    template
+    blocks {
+      key
+      props
+    }
+  }
+  breadcrumb {
+    id
+    template
+    blocks {
+      key
+      props
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "name": "@asany/umi-plugin-app",
+  "license": "MIT",
+  "author": "李茂峰 <limaofeng@msn.com>",
+  "repository": "https://github.com/limaofeng/umi-plugin-app",
+  "version": "0.1.57",
+  "main": "dist/cjs/index.js",
+  "types": "dist/cjs/index.d.ts",
+  "scripts": {
+    "dev": "father dev",
+    "build": "father build",
+    "example": "APP_ROOT=example umi dev",
+    "lint": "umi lint --fix",
+    "size": "size-limit",
+    "analyze": "size-limit --why",
+    "postinstall": "husky install",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable",
+    "version": "conventional-changelog -p angular -i CHANGELOG.md -s && git add CHANGELOG.md",
+    "postversion": "git push --follow-tags",
+    "lint:prettier": "prettier -c --write \"src/**/*.{ts,tsx,graphql,gql}\" \"templates/**/*.{ts,tsx,graphql,gql}\" --end-of-line auto",
+    "precommit": "lint-staged",
+    "prettier": "prettier -c --write \"src/**/*.{ts,tsx,graphql,gql}\" \"templates/**/*.{ts,tsx,graphql,gql}\""
+  },
+  "keywords": [],
+  "authors": {
+    "name": "李茂峰 <limaofeng@msn.com>",
+    "email": "limaofeng@msn.com"
+  },
+  "files": [
+    "dist",
+    "templates"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "prettier": {
+    "printWidth": 120,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{js,jsx,ts,tsx}": "npm run lint-staged:js",
+    "**/*.{js,jsx,tsx,ts,less,md,json}": [
+      "prettier --write"
+    ]
+  },
+  "size-limit": [
+    {
+      "path": "dist",
+      "limit": "100 KB"
+    }
+  ],
+  "dependencies": {
+    "@asany/icons": "^0.2.14",
+    "@asany/shortcuts": "^0.1.5",
+    "@asany/sunmao": "^1.0.36",
+    "@asany/tree": "^0.1.28",
+    "@asany/umi-plugin-apollo": "^0.4.3",
+    "@umijs/plugins": "^4.1.2",
+    "react-dnd": "^14.0.3",
+    "react-dnd-html5-backend": "^14.0.1",
+    "react-redux": "^9.1.0",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.6.1",
+    "@commitlint/config-conventional": "^18.6.2",
+    "@size-limit/preset-small-lib": "^5.0.3",
+    "conventional-changelog-cli": "^4.1.0",
+    "father": "^4.1.8",
+    "umi": "^4.1.2",
+    "@types/node": "^18.15.11",
+    "husky": "^7.0.2",
+    "pinst": "^3.0.0",
+    "prettier": "^3.2.5",
+    "size-limit": "^5.0.3",
+    "typescript": "^5.0.3"
+  }
+}
