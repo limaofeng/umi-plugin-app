@@ -5,7 +5,7 @@ import { lazy, Suspense } from 'react'
 function dynamic(config: any) {
   const Component = lazy(config.loader);
   return (props: any) => (
-    <Suspense fallback={config.loading || null}>
+    <Suspense fallback={config.loading}>
       <Component {...props} />
     </Suspense>
   );

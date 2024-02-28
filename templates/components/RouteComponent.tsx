@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useAccess } from 'umi';
 import { useReactComponent } from '@asany/sunmao';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { stringify } from 'qs';
 
 import { AuthComponentProps, UseRouteSelectorFunc } from '../typings';
@@ -30,9 +30,9 @@ export const AuthComponent = ({
 
   if (!access.isAuthorized && authorized) {
     if (!redirect) {
-      return <Redirect to={redirectUrl} />;
+      return <Navigate to={redirectUrl} replace />;
     }
-    return <Redirect to={`${redirectUrl}${redirectUrl.includes('?') ? '&' : '?'}${stringify({ redirect })}`} />;
+    return <Navigate to={`${redirectUrl}${redirectUrl.includes('?') ? '&' : '?'}${stringify({ redirect })}`} replace />;
   }
 
   return children || <LoadingComponent />;

@@ -56,7 +56,7 @@ export class AppManager {
     const isParent = route.routes && route.routes.length;
 
     // 构造组件
-    const component: ComponentType<any> = route.component && this.renderRouteComponent(route.id);
+    const component = route.component && this.renderRouteComponent(route.id);
     const wrappers: ComponentType<any>[] = [];
 
     // 转换子组件
@@ -65,7 +65,7 @@ export class AppManager {
     // 包装器
     if (route.authorized) {
       wrappers.unshift(this.renderAuthorized(route.id, route.redirect));
-      delete route.redirect;
+      route.redirect = undefined;
     }
 
     route.layout = (route.layout as any)?.pure ? false : route.layout;
@@ -75,10 +75,10 @@ export class AppManager {
     }
 
     if (!component && wrappers.length) {
-      return { ...route, component: wrappers[0] };
+      return { ...route, component: React.createElement(wrappers[0]) };
     }
 
-    return { ...route, component, wrappers };
+    return { ...route, element: React.createElement(component!), wrappers };
   };
 
   private renderRouteComponent(id: string): ComponentType<any> {
@@ -116,7 +116,7 @@ export class AppManager {
   //   return wrappers;
   // }
 
-  private renderAuthorized = (id: string, redirectUrl: string): ComponentType<any> => {
+  private renderAuthorized = (id: string, redirectUrl?: string): ComponentType<any> => {
     const CACHE_AUTHCOMPONENT_KEY = `AUTHCOMPONENT_${id}`;
     let authorized = this.cache.get(CACHE_AUTHCOMPONENT_KEY);
     if (!authorized) {

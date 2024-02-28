@@ -96,7 +96,7 @@ export interface IRoute {
   application: IApplication;
   authorized: boolean;
   authority: string[];
-  redirect: string;
+  redirect?: string;
   wrappers: any[];
   layout?: { pure: boolean } | boolean;
   routes: any[] | undefined;

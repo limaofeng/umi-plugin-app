@@ -25,7 +25,7 @@ interface ExtDvaContainerProps {
 function ExtDvaContainer(props: ExtDvaContainerProps) {
   const store = useRef<any>();
 
-  if(!store.current) {
+  if (!store.current) {
     const dvaApp = getDvaApp();
     // 添加插件默认支持的 Model
     dvaApp.model(global);
