@@ -26,7 +26,7 @@ export const AuthComponent = ({
   }
 
   let redirect = window.location.pathname + window.location.search;
-  redirect = redirect.substr(Math.max(__webpack_public_path__.length - 1, 0));
+  redirect = redirect.substring(Math.max(__webpack_public_path__.length - 1, 0));
 
   if (!access.isAuthorized && authorized) {
     if (!redirect) {

@@ -62,6 +62,8 @@ export class AppManager {
     // 转换子组件
     route.routes = isParent ? route.routes!.map(this.transformRoute) : undefined;
 
+    let element = component ? React.createElement(component) : undefined;
+
     // 包装器
     if (route.authorized) {
       wrappers.unshift(this.renderAuthorized(route.id, route.redirect));
@@ -74,11 +76,11 @@ export class AppManager {
       route.exact = true;
     }
 
-    if (!component && wrappers.length) {
-      return { ...route, component: React.createElement(wrappers[0]) };
+    for (let i = wrappers.length - 1; i >= 0; i--) {
+      element = React.createElement(wrappers[i], {}, element);
     }
 
-    return { ...route, element: React.createElement(component!), wrappers };
+    return { ...route, element, wrappers };
   };
 
   private renderRouteComponent(id: string): ComponentType<any> {
