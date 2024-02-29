@@ -1,3 +1,12 @@
+## [0.4.3](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.2...v0.4.3) (2024-02-29)
+
+
+### Features
+
+* remove unused patchRoutes function ([4c7669e](https://github.com/limaofeng/umi-plugin-app/commit/4c7669e50bbba021aa7c0975c29901a9c8c8aca5))
+
+
+
 ## [0.4.2](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.1...v0.4.2) (2024-02-29)
 
 
