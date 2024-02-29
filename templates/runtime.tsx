@@ -41,10 +41,6 @@ async function loadRoutes() {
   extraRoutes = AppManager.transform(app.routes);
 }
 
-export const patchRoutes = ({ routes, routeComponents }: any) => {
-  console.log('patchRoutes', routes, routeComponents);
-};
-
 export const patchClientRoutes = ({ routes }: any) => {
   const insertIndex = routes.findIndex((item: IRoute) => item.path === '/');
   routes.splice(insertIndex, 0, ...extraRoutes);
