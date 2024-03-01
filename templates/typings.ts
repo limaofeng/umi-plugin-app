@@ -100,6 +100,7 @@ export interface IRoute {
   wrappers: any[];
   layout?: { pure: boolean } | boolean;
   routes: any[] | undefined;
+  children: IRoute[] | undefined;
   exact: boolean;
   parent: any;
 }

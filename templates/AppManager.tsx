@@ -60,7 +60,8 @@ export class AppManager {
     const wrappers: ComponentType<any>[] = [];
 
     // 转换子组件
-    route.routes = isParent ? route.routes!.map(this.transformRoute) : undefined;
+    route.children = isParent ? route.routes!.map(this.transformRoute) : undefined;
+    route.routes = undefined;
 
     let element = component ? React.createElement(component) : undefined;
 
@@ -72,15 +73,11 @@ export class AppManager {
 
     route.layout = (route.layout as any)?.pure ? false : route.layout;
 
-    if (!route.routes || route.routes.length === 0) {
-      route.exact = true;
-    }
-
     for (let i = wrappers.length - 1; i >= 0; i--) {
       element = React.createElement(wrappers[i], {}, element);
     }
 
-    return { ...route, element, wrappers };
+    return { ...route, element };
   };
 
   private renderRouteComponent(id: string): ComponentType<any> {

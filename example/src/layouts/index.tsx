@@ -1,15 +1,5 @@
+import dynamic from '../utils/dynamic';
 import { component, library } from '@asany/sunmao';
-import { lazy, Suspense } from 'react'
-
-
-function dynamic(config: any) {
-  const Component = lazy(config.loader);
-  return (props: any) => (
-    <Suspense fallback={config.loading}>
-      <Component {...props} />
-    </Suspense>
-  );
-}
 
 @library({
   name: 'layout',
@@ -23,7 +13,7 @@ class Layout {
   })
   Demo7 = dynamic({
     loader: () => import('./Default/index'),
-    loading: () => <p>loading...</p>,
+    loading: () => <div>loading...</div>,
   });
 }
 

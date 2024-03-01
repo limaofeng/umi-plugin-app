@@ -1,13 +1,22 @@
-import { defineConfig } from "umi";
+import { defineConfig } from '@umijs/max';
 
 export default defineConfig({
-  plugins: ["@umijs/plugins/dist/dva", "@asany/umi-plugin-apollo", require.resolve('../dist/cjs')],
+  plugins: ["@asany/umi-plugin-apollo", require.resolve('../dist/cjs')],
   apollo: {
     url: 'https://api.asany.cn/graphql',
   },
   app: {
     id: '6068485332c5fc853a65',
   },
-  dva:{},
+  dva: {},
+  antd: {},
+  access: {},
+  model: {},
+  initialState: {},
+  request: {},
+  layout: false,
+  routes: [
+  ],
   npmClient: 'npm',
 });
+
