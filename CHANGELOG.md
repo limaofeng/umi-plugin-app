@@ -1,3 +1,12 @@
+## [0.4.4](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.3...v0.4.4) (2024-03-01)
+
+
+### Features
+
+*  add new files and update existing files ([3c6ac12](https://github.com/limaofeng/umi-plugin-app/commit/3c6ac124796a15dfceb4e68da926495d85d6d509))
+
+
+
 ## [0.4.3](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.2...v0.4.3) (2024-02-29)
 
 
