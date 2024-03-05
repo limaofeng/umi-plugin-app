@@ -1,11 +1,7 @@
 // import { EnvironmentManager } from '@asany/components';
 import React, { useRef, useEffect } from 'react';
 
-import { ConfigProvider } from 'antd';
-import { ILibraryDefinition, Sunmao, SunmaoProvider } from '@asany/sunmao';
-import zhCN from 'antd/es/locale/zh_CN';
-import { DndProvider } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
+import { ILibraryDefinition, SunmaoProvider } from '@asany/sunmao';
 import { PersistGate } from 'redux-persist/integration/react';
 import { getDvaApp } from 'umi';
 import { IconProvider } from '@asany/icons';
@@ -47,11 +43,7 @@ function ExtDvaContainer(props: ExtDvaContainerProps) {
     <PersistGate persistor={store.current.persistor} loading={<div>加载组件</div>}>
       <IconProvider>
         <ShortcutProvider keymap={keymap}>
-          <SunmaoProvider sunmao={sunmao}>
-            <ConfigProvider locale={zhCN}>
-              <DndProvider backend={HTML5Backend}>{children}</DndProvider>
-            </ConfigProvider>
-          </SunmaoProvider>
+          <SunmaoProvider sunmao={sunmao}>{children}</SunmaoProvider>
         </ShortcutProvider>
       </IconProvider>
     </PersistGate>
