@@ -1,3 +1,12 @@
+## [0.4.5](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.4...v0.4.5) (2024-03-05)
+
+
+### Bug Fixes
+
+* remove unused dependencies and refactor ExtDvaContainer component ([e190900](https://github.com/limaofeng/umi-plugin-app/commit/e190900ace27fcdd2e1dc197ea9923ce72566483))
+
+
+
 ## [0.4.4](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.3...v0.4.4) (2024-03-01)
 
 
