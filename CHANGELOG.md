@@ -1,3 +1,12 @@
+## [0.4.6](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.5...v0.4.6) (2024-03-05)
+
+
+### Features
+
+*  添加 Providers 开关 ([768d00d](https://github.com/limaofeng/umi-plugin-app/commit/768d00df40ccfaa416b1b87635f11f3218bc53cd))
+
+
+
 ## [0.4.5](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.4...v0.4.5) (2024-03-05)
 
 
