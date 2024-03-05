@@ -27,10 +27,16 @@ export default function (api: IApi) {
     config: {
       default: {
         id: process.env.APPID,
+        shortcuts: true,
+        sunmao: true,
+        icons: true,
       },
       schema(joi) {
         return joi.object({
           id: joi.string(),
+          shortcuts: joi.boolean(),
+          sunmao: joi.boolean(),
+          icons: joi.boolean(),
         });
       },
     },

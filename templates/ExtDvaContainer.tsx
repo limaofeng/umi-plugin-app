@@ -18,6 +18,10 @@ interface ExtDvaContainerProps {
   libraries: { [key: string]: ILibraryDefinition };
 }
 
+const enableShortcuts = {{shortcuts}};
+const enableSunmao = {{sunmao}};
+const enableIcons = {{icons}};
+
 function ExtDvaContainer(props: ExtDvaContainerProps) {
   const store = useRef<any>();
 
@@ -29,7 +33,7 @@ function ExtDvaContainer(props: ExtDvaContainerProps) {
   }
 
   useEffect(() => {
-    sunmao.addLibrary(...Object.keys(props.libraries).map((key) => props.libraries[key]));
+    enableSunmao && sunmao.addLibrary(...Object.keys(props.libraries).map((key) => props.libraries[key]));
   }, []);
 
   // 转移系统环境变量到 EnvironmentManager 中
@@ -39,13 +43,24 @@ function ExtDvaContainer(props: ExtDvaContainerProps) {
   // environment.set("paths.upload.viewUrl", process.env.STORAGE_URL);
 
   const { children } = props;
+
+  const renderAppWithOptionalProviders = (children: any) => {
+    let WrappedChildren = children;
+    if (enableSunmao) {
+      WrappedChildren = <SunmaoProvider sunmao={sunmao}>{children}</SunmaoProvider>;
+    }
+    if (enableShortcuts) {
+      WrappedChildren = <ShortcutProvider keymap={keymap}>{WrappedChildren}</ShortcutProvider>;
+    }
+    if (enableIcons) {
+      WrappedChildren = <IconProvider>{WrappedChildren}</IconProvider>;
+    }
+    return WrappedChildren;
+  };
+
   return (
     <PersistGate persistor={store.current.persistor} loading={<div>加载组件</div>}>
-      <IconProvider>
-        <ShortcutProvider keymap={keymap}>
-          <SunmaoProvider sunmao={sunmao}>{children}</SunmaoProvider>
-        </ShortcutProvider>
-      </IconProvider>
+      {renderAppWithOptionalProviders(children)}
     </PersistGate>
   );
 }
