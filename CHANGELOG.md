@@ -1,3 +1,13 @@
+## [0.4.9](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.8...v0.4.9) (2024-03-06)
+
+
+### Features
+
+* update @asany/sunmao version to 1.0.38 ([0e44a52](https://github.com/limaofeng/umi-plugin-app/commit/0e44a52cbb0b095dc2ece039cbf63e21bdc7f603))
+* 依赖调整 ([f12c298](https://github.com/limaofeng/umi-plugin-app/commit/f12c2984a12065af084ec03aa1c8e1702fe62b78))
+
+
+
 ## [0.4.8](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.7...v0.4.8) (2024-03-06)
 
 
