@@ -1,3 +1,12 @@
+## [0.4.7](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.6...v0.4.7) (2024-03-06)
+
+
+### Features
+
+* 优化 ExtDvaContainer  中的renderProviders 逻辑 ([9c99119](https://github.com/limaofeng/umi-plugin-app/commit/9c991194a07e1ad8f21ca3841e63285656dce65c))
+
+
+
 ## [0.4.6](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.5...v0.4.6) (2024-03-05)
 
 
