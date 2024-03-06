@@ -9,6 +9,10 @@ import { IconProvider } from '@asany/icons';
 {{#shortcuts}}
 import { ShortcutProvider } from '@asany/shortcuts';
 {{/shortcuts}}
+{{#dnd}}
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
+{{/dnd}}
 
 import { sunmao } from './index';
 import global from './models/global';
@@ -21,9 +25,7 @@ interface ExtDvaContainerProps {
 
 const renderAppWithOptionalProviders = (children: any) => {
   let WrappedChildren = children;
-  {{#sunmao}}
   WrappedChildren = <SunmaoProvider sunmao={sunmao}>{WrappedChildren}</SunmaoProvider>;
-  {{/sunmao}}
   {{#shortcuts}}
   const keymap = require('../../keymap').default
   WrappedChildren = <ShortcutProvider keymap={keymap}>{WrappedChildren}</ShortcutProvider>;
@@ -31,6 +33,9 @@ const renderAppWithOptionalProviders = (children: any) => {
   {{#icons}}
   WrappedChildren = <IconProvider>{WrappedChildren}</IconProvider>;
   {{/icons}}
+  {{#dnd}}
+  <DndProvider backend={HTML5Backend}>{WrappedChildren}</DndProvider>
+  {{/dnd}}
   return WrappedChildren;
 }
 
@@ -44,11 +49,9 @@ function ExtDvaContainer(props: ExtDvaContainerProps) {
     store.current = dvaApp._store;
   }
   
-  {{#sunmao}}
   useEffect(() => {
     sunmao.addLibrary(...Object.keys(props.libraries).map((key) => props.libraries[key]));
   }, [])
-  {{/sunmao}}
 
   return (
     <PersistGate persistor={store.current.persistor} loading={<div>加载组件</div>}>
