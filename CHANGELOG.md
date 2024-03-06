@@ -1,3 +1,12 @@
+## [0.4.8](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.7...v0.4.8) (2024-03-06)
+
+
+### Features
+
+*  添加 dnd 配置参数 ([dfac7f5](https://github.com/limaofeng/umi-plugin-app/commit/dfac7f58e936688df500124d49f6981405574c92))
+
+
+
 ## [0.4.7](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.6...v0.4.7) (2024-03-06)
 
 
