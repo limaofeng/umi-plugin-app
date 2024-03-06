@@ -1,13 +1,14 @@
-// import { EnvironmentManager } from '@asany/components';
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 
 import { ILibraryDefinition, SunmaoProvider } from '@asany/sunmao';
 import { PersistGate } from 'redux-persist/integration/react';
 import { getDvaApp } from 'umi';
+{{#icons}}
 import { IconProvider } from '@asany/icons';
+{{/icons}}
+{{#shortcuts}}
 import { ShortcutProvider } from '@asany/shortcuts';
-
-import keymap from '../../keymap';
+{{/shortcuts}}
 
 import { sunmao } from './index';
 import global from './models/global';
@@ -18,9 +19,20 @@ interface ExtDvaContainerProps {
   libraries: { [key: string]: ILibraryDefinition };
 }
 
-const enableShortcuts = {{shortcuts}};
-const enableSunmao = {{sunmao}};
-const enableIcons = {{icons}};
+const renderAppWithOptionalProviders = (children: any) => {
+  let WrappedChildren = children;
+  {{#sunmao}}
+  WrappedChildren = <SunmaoProvider sunmao={sunmao}>{WrappedChildren}</SunmaoProvider>;
+  {{/sunmao}}
+  {{#shortcuts}}
+  const keymap = require('../../keymap').default
+  WrappedChildren = <ShortcutProvider keymap={keymap}>{WrappedChildren}</ShortcutProvider>;
+  {{/shortcuts}}
+  {{#icons}}
+  WrappedChildren = <IconProvider>{WrappedChildren}</IconProvider>;
+  {{/icons}}
+  return WrappedChildren;
+}
 
 function ExtDvaContainer(props: ExtDvaContainerProps) {
   const store = useRef<any>();
@@ -31,36 +43,16 @@ function ExtDvaContainer(props: ExtDvaContainerProps) {
     dvaApp.model(global);
     store.current = dvaApp._store;
   }
-
+  
+  {{#sunmao}}
   useEffect(() => {
-    enableSunmao && sunmao.addLibrary(...Object.keys(props.libraries).map((key) => props.libraries[key]));
-  }, []);
-
-  // 转移系统环境变量到 EnvironmentManager 中
-  // const environment = EnvironmentManager.currentEnvironment();
-  // environment.set("paths.upload.url", process.env.STORAGE_URL + '/files');
-  // environment.set("paths.upload.space", process.env.STORAGE_DEFAULT_SPACE);
-  // environment.set("paths.upload.viewUrl", process.env.STORAGE_URL);
-
-  const { children } = props;
-
-  const renderAppWithOptionalProviders = (children: any) => {
-    let WrappedChildren = children;
-    if (enableSunmao) {
-      WrappedChildren = <SunmaoProvider sunmao={sunmao}>{children}</SunmaoProvider>;
-    }
-    if (enableShortcuts) {
-      WrappedChildren = <ShortcutProvider keymap={keymap}>{WrappedChildren}</ShortcutProvider>;
-    }
-    if (enableIcons) {
-      WrappedChildren = <IconProvider>{WrappedChildren}</IconProvider>;
-    }
-    return WrappedChildren;
-  };
+    sunmao.addLibrary(...Object.keys(props.libraries).map((key) => props.libraries[key]));
+  }, [])
+  {{/sunmao}}
 
   return (
     <PersistGate persistor={store.current.persistor} loading={<div>加载组件</div>}>
-      {renderAppWithOptionalProviders(children)}
+      {renderAppWithOptionalProviders(props.children)}
     </PersistGate>
   );
 }

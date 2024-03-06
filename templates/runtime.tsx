@@ -33,11 +33,6 @@ async function loadRoutes() {
 
   setCurrentApplication(app);
 
-  // const env = EnvironmentManager.currentEnvironment();
-
-  // env.set('layout.navbar.logo', app.logo);
-  // env.set('layout.navbar.title', app.name);
-
   extraRoutes = AppManager.transform(app.routes);
 }
 

@@ -7,6 +7,7 @@ export default defineConfig({
   },
   app: {
     id: '6068485332c5fc853a65',
+    shortcuts: false
   },
   dva: {},
   antd: {},
