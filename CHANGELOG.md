@@ -1,3 +1,12 @@
+## [0.4.14](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.13...v0.4.14) (2024-03-13)
+
+
+### Features
+
+* add LoadingContext to index.ts ([365f8ee](https://github.com/limaofeng/umi-plugin-app/commit/365f8eea84a7db29ea5f9d12010efd6113f77c52))
+
+
+
 ## [0.4.13](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.12...v0.4.13) (2024-03-13)
 
 
