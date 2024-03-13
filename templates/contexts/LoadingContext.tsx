@@ -63,9 +63,9 @@ export const LoadingProvider = ({ children }: { children: React.ReactNode }) => 
       return;
     }
     if (loading) {
-      eventBus.emit('LOADING_START', null);
+      eventBus.emit('LOADING_START', loading);
     } else {
-      eventBus.emit('LOADING_END', null);
+      eventBus.emit('LOADING_END', loading);
     }
   }, [loading]);
 
@@ -79,7 +79,8 @@ export const useLoading = () => {
 export const useLoadingControls = () => {
   return {
     value: eventBus.getValue(),
-    start: () => eventBus.emit('LOADING_START', null),
-    end: () => eventBus.emit('LOADING_END', null),
+    start: () => eventBus.emit('LOADING_START', true),
+    end: () => eventBus.emit('LOADING_END', false),
+    on: (event: 'LOADING_START' | 'LOADING_END', listener: (data: boolean) => void) => eventBus.on(event, listener),
   };
 };
