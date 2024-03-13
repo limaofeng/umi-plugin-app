@@ -15,7 +15,7 @@ import {
 } from './gql/application.gql';
 import * as libraries from './autoImportLibrary';
 import { IRoute } from './typings';
-import { useLoading } from './contexts/LoadingContext';
+import { useLoading, useLoadingControls } from './contexts/LoadingContext';
 
 const logging = process.env.NODE_ENV === 'development';
 
@@ -61,9 +61,9 @@ type RouteChangeParams = {
 }
 
 export function onRouteChange({ location, action }: RouteChangeParams) {
-  const { loading, setLoading } = useLoading();
+  const loadingControls = useLoadingControls();
   console.log('onRouteChange', location.pathname, action);
-  setLoading(true);
+  loadingControls.start();
 };
 {{/loading}}
 
