@@ -1,3 +1,12 @@
+## [0.4.15](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.14...v0.4.15) (2024-03-13)
+
+
+### Features
+
+* update LoadingContext to emit loading status ([5f0de71](https://github.com/limaofeng/umi-plugin-app/commit/5f0de7144cbd825018dbde74c3e38c0a21cef081))
+
+
+
 ## [0.4.14](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.13...v0.4.14) (2024-03-13)
 
 
