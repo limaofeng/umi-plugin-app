@@ -1,3 +1,12 @@
+## [0.4.13](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.12...v0.4.13) (2024-03-13)
+
+
+### Bug Fixes
+
+* add event bus and loading controls to LoadingContext ([8e24767](https://github.com/limaofeng/umi-plugin-app/commit/8e24767500466e6035d4da5f9022b419b7f6f1a7))
+
+
+
 ## [0.4.12](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.11...v0.4.12) (2024-03-13)
 
 
