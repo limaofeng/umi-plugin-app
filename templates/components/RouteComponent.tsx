@@ -57,7 +57,7 @@ export default function RouteComponent({ ROUTEID: id, useRouteSelector, ...props
   const Component = useReactComponent(component!.template, component!.blocks, {
     id,
   });
-  {{isLoadingAuto}}
+  {{#isLoadingAuto}}
   const { setLoading } = useLoading();
   useEffect(() => {
     setTimeout(() => {

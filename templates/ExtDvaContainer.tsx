@@ -13,7 +13,7 @@ import { ShortcutProvider } from '@asany/shortcuts';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 {{/dnd}}
-{{loading}}
+{{#loading}}
 import { LoadingProvider } from './contexts/LoadingContext';
 {{/loading}}
 
@@ -39,7 +39,7 @@ const renderAppWithOptionalProviders = (children: any) => {
   {{#dnd}}
   <DndProvider backend={HTML5Backend}>{WrappedChildren}</DndProvider>
   {{/dnd}}
-  {{loading}}
+  {{#loading}}
   WrappedChildren = <LoadingProvider>{WrappedChildren}</LoadingProvider>;
   {{/loading}}
   return WrappedChildren;

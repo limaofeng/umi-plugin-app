@@ -50,7 +50,7 @@ export const render = (oldRender: () => void) => {
   loadRoutes().then(oldRender);
 };
 
-{{loading}}
+{{#loading}}
 type RouteChangeParams = {
   location: Location;
   routes: any;
