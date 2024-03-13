@@ -8,7 +8,9 @@ export { default as RouteComponent } from './components/RouteComponent';
 
 export const sunmao = new Sunmao();
 
-export const clientId = '{{id}}';
+export const useAppClientId = function (): string {
+  return '{{id}}'
+}
 
 export const useApp = function (): IApplication {
   return useSelector((state: any) => state.global.application);

@@ -69,6 +69,7 @@
     "redux-persist": "^6.0.0"
   },
   "peerDependencies": {
+    "antd": "^5.15.0",
     "@asany/umi-plugin-apollo": "^0.4.5"
   },
   "devDependencies": {

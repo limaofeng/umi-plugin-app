@@ -15,6 +15,7 @@ import {
 } from './gql/application.gql';
 import * as libraries from './autoImportLibrary';
 import { IRoute } from './typings';
+import { useLoading } from './contexts/LoadingContext';
 
 const logging = process.env.NODE_ENV === 'development';
 
@@ -49,7 +50,22 @@ export const render = (oldRender: () => void) => {
   loadRoutes().then(oldRender);
 };
 
-export const onRouteChange = () => {};
+{{loading}}
+type RouteChangeParams = {
+  location: Location;
+  routes: any;
+  action: any;
+  clientRoutes: any[];
+  basename:string;
+  isFirst: boolean;
+}
+
+export function onRouteChange({ location, action }: RouteChangeParams) {
+  const { loading, setLoading } = useLoading();
+  console.log('onRouteChange', location.pathname, action);
+  setLoading(true);
+};
+{{/loading}}
 
 const persistConfig = {
   timeout: 1000, // you can define your time. But is required.

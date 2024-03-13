@@ -15,7 +15,11 @@ const cenerateFile = (api: IApi, fileName: string) =>
     const indexTemplate = readFileSync(templatePath, 'utf-8');
     api.writeTmpFile({
       path: indexPath,
-      content: Mustache.render(indexTemplate, api.config.app),
+      content: Mustache.render(indexTemplate, {
+        ...api.config.app,
+        isLoadingAuto: api.config.app.loading === true || api.config.app.loading === 'auto',
+        isLoadingManual: api.config.app.loading === 'manual',
+      }),
     });
   });
 
@@ -30,6 +34,7 @@ export default function (api: IApi) {
         shortcuts: true,
         icons: true,
         dnd: true,
+        loading: true,
       },
       schema(joi) {
         return joi.object({
@@ -37,6 +42,7 @@ export default function (api: IApi) {
           shortcuts: joi.boolean(),
           icons: joi.boolean(),
           dnd: joi.boolean(),
+          loading: joi.alternatives().try(joi.boolean(), joi.string().valid('auto', 'manual')),
         });
       },
     },
@@ -54,6 +60,7 @@ export default function (api: IApi) {
     'AppManager.tsx',
     'index.ts',
     'typings.ts',
+    'contexts/LoadingContext.tsx',
   ];
 
   files.map((fileName) => cenerateFile(api, fileName));

@@ -13,6 +13,9 @@ import { ShortcutProvider } from '@asany/shortcuts';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 {{/dnd}}
+{{loading}}
+import { LoadingProvider } from './contexts/LoadingContext';
+{{/loading}}
 
 import { sunmao } from './index';
 import global from './models/global';
@@ -36,6 +39,9 @@ const renderAppWithOptionalProviders = (children: any) => {
   {{#dnd}}
   <DndProvider backend={HTML5Backend}>{WrappedChildren}</DndProvider>
   {{/dnd}}
+  {{loading}}
+  WrappedChildren = <LoadingProvider>{WrappedChildren}</LoadingProvider>;
+  {{/loading}}
   return WrappedChildren;
 }
 

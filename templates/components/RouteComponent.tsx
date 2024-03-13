@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useAccess } from 'umi';
 import { useReactComponent } from '@asany/sunmao';
@@ -6,6 +6,7 @@ import { Navigate } from 'react-router-dom';
 import { stringify } from 'qs';
 
 import { AuthComponentProps, UseRouteSelectorFunc } from '../typings';
+import { useLoading } from '../contexts/LoadingContext';
 
 function DefaultLoadingComponent() {
   return <></>;
@@ -56,5 +57,13 @@ export default function RouteComponent({ ROUTEID: id, useRouteSelector, ...props
   const Component = useReactComponent(component!.template, component!.blocks, {
     id,
   });
+  {{isLoadingAuto}}
+  const { setLoading } = useLoading();
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 150);
+  }, []);
+  {{/isLoadingAuto}}
   return <Component {...props} />;
 }
