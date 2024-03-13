@@ -1,3 +1,12 @@
+## [0.4.10](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.9...v0.4.10) (2024-03-13)
+
+
+### Features
+
+* 添加 loading 参数 ([9458cf7](https://github.com/limaofeng/umi-plugin-app/commit/9458cf71cbd689676ba5098037426f5c118b191c))
+
+
+
 ## [0.4.9](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.8...v0.4.9) (2024-03-06)
 
 
