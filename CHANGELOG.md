@@ -1,3 +1,12 @@
+## [0.4.11](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.10...v0.4.11) (2024-03-13)
+
+
+### Bug Fixes
+
+* fix loading issue in templates ([9173318](https://github.com/limaofeng/umi-plugin-app/commit/9173318b1c657d93ca913e1844d423d836af9a81))
+
+
+
 ## [0.4.10](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.9...v0.4.10) (2024-03-13)
 
 
