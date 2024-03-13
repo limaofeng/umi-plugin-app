@@ -1,3 +1,12 @@
+## [0.4.12](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.11...v0.4.12) (2024-03-13)
+
+
+### Bug Fixes
+
+* 解决LoadingProvider 中的模板写法冲突 ([d57824b](https://github.com/limaofeng/umi-plugin-app/commit/d57824be0d9e2b8e28f239bf9ef4cdc08f064271))
+
+
+
 ## [0.4.11](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.10...v0.4.11) (2024-03-13)
 
 
