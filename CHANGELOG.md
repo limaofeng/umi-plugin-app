@@ -1,3 +1,12 @@
+## [0.4.16](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.15...v0.4.16) (2024-03-14)
+
+
+### Features
+
+* add index property to route if parent path matches ([0fbe260](https://github.com/limaofeng/umi-plugin-app/commit/0fbe26090cd3a05db64418ac50ba80d01c6bdade))
+
+
+
 ## [0.4.15](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.14...v0.4.15) (2024-03-13)
 
 
