@@ -77,6 +77,10 @@ export class AppManager {
       element = React.createElement(wrappers[i], {}, element);
     }
 
+    if (route.parent && route.path == route.parent.path) {
+      route.index = true;
+    }
+
     return { ...route, element };
   };
 

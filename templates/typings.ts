@@ -89,6 +89,7 @@ export interface IRoute {
   id: string;
   key: string;
   path?: string;
+  index?: boolean;
   name?: string;
   type: 'route';
   component?: NuwaComponent;
