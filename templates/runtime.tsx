@@ -60,10 +60,9 @@ type RouteChangeParams = {
   isFirst: boolean;
 }
 
-export function onRouteChange({ location, action }: RouteChangeParams) {
+export function onRouteChange({ isFirst }: RouteChangeParams) {
   const loadingControls = useLoadingControls();
-  console.log('onRouteChange', location.pathname, action);
-  loadingControls.start();
+  !isFirst && loadingControls.start();
 };
 {{/loading}}
 
