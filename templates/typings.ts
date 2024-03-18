@@ -121,6 +121,7 @@ export interface LoadingComponentProps {}
 export interface AuthComponentProps {
   ROUTEID: string;
   redirectUrl?: string;
+  loginUrl: string;
   useRouteSelector: UseRouteSelectorFunc;
   children: React.ReactElement;
   loading?: React.ComponentType<LoadingComponentProps>;

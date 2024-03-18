@@ -7,6 +7,7 @@ import isEqual from 'lodash/isEqual';
 import { EqualityFn, IRoute, Selector, SubscribeCallback, UseRouteSelectorFunc } from './typings';
 import * as utils from './utils';
 import RouteComponent, { AuthComponent } from './components/RouteComponent';
+import { Application } from './models/global';
 
 const EVENT_ROUTE_RELOAD = 'EVENT_ROUTE_RELOAD';
 const EVENT_SINGLE_ROUTE_UPDATE_PREFIX = 'EVENT_SINGLE_ROUTE_UPDATE_';
@@ -14,11 +15,19 @@ const EVENT_SINGLE_ROUTE_UPDATE_PREFIX = 'EVENT_SINGLE_ROUTE_UPDATE_';
 const defaultEqualityFn = isEqual;
 
 export class AppManager {
+  private app?: Application;
   private routes = new Map<string, IRoute>();
+  private routeList: IRoute[] = [];
 
   private cache = new Map<string, ComponentType<any>>();
 
   private emitter = new EventEmitter();
+
+  setApp(app: any) {
+    this.app = app;
+    this.routeList = this.transform(app.routes);
+    return this;
+  }
 
   reload() {}
 
@@ -49,6 +58,10 @@ export class AppManager {
     }
   }
 
+  getRoutes() {
+    return this.routeList;
+  }
+
   transformRoute = (route: IRoute) => {
     // 保存数据
     this.routes.set(route.id, route);
@@ -66,8 +79,8 @@ export class AppManager {
     let element = component ? React.createElement(component) : undefined;
 
     // 包装器
-    if (route.authorized) {
-      wrappers.unshift(this.renderAuthorized(route.id, route.redirect));
+    if (route.authorized && this.app!.loginRoute) {
+      wrappers.unshift(this.renderAuthorized(route.id, this.app!.loginRoute.path!, route.redirect));
       route.redirect = undefined;
     }
 
@@ -119,7 +132,7 @@ export class AppManager {
   //   return wrappers;
   // }
 
-  private renderAuthorized = (id: string, redirectUrl?: string): ComponentType<any> => {
+  private renderAuthorized = (id: string, loginUrl: string, redirectUrl?: string): ComponentType<any> => {
     const CACHE_AUTHCOMPONENT_KEY = `AUTHCOMPONENT_${id}`;
     let authorized = this.cache.get(CACHE_AUTHCOMPONENT_KEY);
     if (!authorized) {
@@ -129,7 +142,8 @@ export class AppManager {
           <AuthComponent
             ROUTEID={id}
             useRouteSelector={this.useRouteSelector}
-            redirectUrl={redirectUrl || '/login'}
+            redirectUrl={redirectUrl}
+            loginUrl={loginUrl}
             {...props}
           />
         ))

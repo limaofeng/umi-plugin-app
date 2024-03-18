@@ -1,4 +1,5 @@
 import { Reducer } from 'umi';
+import { IRoute } from '../typings';
 
 export interface Dingtalk {
   corpId: string;
@@ -17,6 +18,7 @@ export interface Application {
   name: string;
   dingtalkIntegration: string;
   configuration: ApplicationConfiguration;
+  loginRoute: IRoute;
 }
 
 interface Organization {

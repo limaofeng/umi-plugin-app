@@ -33,8 +33,7 @@ async function loadRoutes() {
   });
 
   setCurrentApplication(app);
-
-  extraRoutes = AppManager.transform(app.routes);
+  extraRoutes = AppManager.setApp(app).getRoutes();
 }
 
 export const patchClientRoutes = ({ routes }: any) => {

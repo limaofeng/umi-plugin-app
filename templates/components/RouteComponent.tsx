@@ -14,7 +14,8 @@ function DefaultLoadingComponent() {
 
 export const AuthComponent = ({
   ROUTEID: id,
-  redirectUrl = '/login',
+  loginUrl,
+  redirectUrl = loginUrl,
   useRouteSelector,
   loading: LoadingComponent = DefaultLoadingComponent,
   children,
@@ -22,7 +23,7 @@ export const AuthComponent = ({
   const access = useAccess();
   const authorized = useRouteSelector(id, ({ routes }) => routes.get(id)?.authorized);
 
-  if (window.location.pathname.endsWith('/login')) {
+  if (window.location.pathname.startsWith(loginUrl)){
     return children;
   }
 
