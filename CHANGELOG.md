@@ -1,3 +1,12 @@
+## [0.4.18](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.17...v0.4.18) (2024-03-18)
+
+
+### Features
+
+* add setApp method to AppManager class ([af301c4](https://github.com/limaofeng/umi-plugin-app/commit/af301c4a55e9558733c6ac394d8e867997c2b0a7))
+
+
+
 ## [0.4.17](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.16...v0.4.17) (2024-03-16)
 
 
