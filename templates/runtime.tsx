@@ -59,9 +59,16 @@ type RouteChangeParams = {
   isFirst: boolean;
 }
 
-export function onRouteChange({ isFirst }: RouteChangeParams) {
+
+let previousRoute: Location;
+
+export function onRouteChange({ isFirst, location }: RouteChangeParams) {
   const loadingControls = useLoadingControls();
+  if(previousRoute && previousRoute.pathname === location.pathname) {
+    return;
+  }
   !isFirst && loadingControls.start();
+  previousRoute = location;
 };
 {{/loading}}
 
