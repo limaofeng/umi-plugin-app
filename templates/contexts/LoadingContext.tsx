@@ -72,8 +72,20 @@ export const LoadingProvider = ({ children }: { children: React.ReactNode }) => 
   return <LoadingContext.Provider value={value}>{children}</LoadingContext.Provider>;
 };
 
-export const useLoading = () => {
-  return useContext(LoadingContext);
+export const useLoading = (loading?: boolean) => {
+  const context = useContext(LoadingContext);
+
+  useEffect(() => {
+    if (loading === undefined || loading === null) {
+      return;
+    }
+    if (context.loading == loading) {
+      return;
+    }
+    context.setLoading(loading);
+  }, [loading]);
+
+  return context;
 };
 
 export const useLoadingControls = () => {
