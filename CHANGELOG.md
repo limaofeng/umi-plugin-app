@@ -1,3 +1,12 @@
+## [0.4.19](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.18...v0.4.19) (2024-03-31)
+
+
+### Features
+
+* 设置默认的 loading 效果时, route change 时，如果在当前页面。不设置 ([11ab794](https://github.com/limaofeng/umi-plugin-app/commit/11ab7948b42175bffe7c4243796155779fb96e0a))
+
+
+
 ## [0.4.18](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.17...v0.4.18) (2024-03-18)
 
 
