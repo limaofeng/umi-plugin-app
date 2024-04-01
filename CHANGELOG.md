@@ -1,3 +1,7 @@
+## [0.4.21](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.20...v0.4.21) (2024-04-01)
+
+
+
 ## [0.4.20](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.19...v0.4.20) (2024-03-31)
 
 
