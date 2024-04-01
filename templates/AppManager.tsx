@@ -80,7 +80,7 @@ export class AppManager {
 
     // 包装器
     if (route.authorized && this.app!.loginRoute) {
-      wrappers.unshift(this.renderAuthorized(route.id, this.app!.loginRoute.path!, route.redirect));
+      wrappers.unshift(this.renderAuthorized(route.id, this.app!.loginRoute.path!));
       route.redirect = undefined;
     }
 
@@ -132,7 +132,7 @@ export class AppManager {
   //   return wrappers;
   // }
 
-  private renderAuthorized = (id: string, loginUrl: string, redirectUrl?: string): ComponentType<any> => {
+  private renderAuthorized = (id: string, loginUrl: string): ComponentType<any> => {
     const CACHE_AUTHCOMPONENT_KEY = `AUTHCOMPONENT_${id}`;
     let authorized = this.cache.get(CACHE_AUTHCOMPONENT_KEY);
     if (!authorized) {
@@ -142,7 +142,6 @@ export class AppManager {
           <AuthComponent
             ROUTEID={id}
             useRouteSelector={this.useRouteSelector}
-            redirectUrl={redirectUrl}
             loginUrl={loginUrl}
             {...props}
           />
