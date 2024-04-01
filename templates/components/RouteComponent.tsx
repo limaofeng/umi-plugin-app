@@ -33,10 +33,12 @@ export const AuthComponent = ({
     if (pathname === '/') {
       return <Navigate to={loginUrl} replace />;
     }
-    return <Navigate to={{
-      pathname: loginUrl,
-      search: '?' + stringify({ redirect: pathname + search })
-    }} replace />;
+    return <Navigate to={
+      {
+        pathname: loginUrl,
+        search: '?' + stringify({ redirect: pathname + search })
+      }
+    } replace />;
   }
 
   return children || <LoadingComponent />;
