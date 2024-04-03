@@ -1,3 +1,17 @@
+## [0.4.23](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.22...v0.4.23) (2024-04-03)
+
+
+### Bug Fixes
+
+* add antd as a peer dependency ([93f4d0f](https://github.com/limaofeng/umi-plugin-app/commit/93f4d0fe4298cf595a269055ecaca97ae1ff2cbc))
+
+
+### Features
+
+* 应用返回模块配置信息 ([77b4544](https://github.com/limaofeng/umi-plugin-app/commit/77b45448cedaec2978d04ad171df846528a30dbc))
+
+
+
 ## [0.4.22](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.21...v0.4.22) (2024-04-01)
 
 
