@@ -18,9 +18,13 @@ query getApplication($id: ID!) {
       name
       value
     }
+    modules {
+      id
+      name
+      configuration
+    }
   }
 }
-
 subscription subscibeUpdateRoute {
   updateRoute {
     id

@@ -1,4 +1,4 @@
-import { Reducer } from 'umi';
+import { Reducer } from '@umijs/max';
 import { IRoute } from '../typings';
 
 export interface Dingtalk {
