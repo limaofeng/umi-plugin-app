@@ -1,3 +1,12 @@
+## [0.4.24](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.23...v0.4.24) (2024-04-05)
+
+
+### Features
+
+* update loading timeout in RouteComponent ([b16c81c](https://github.com/limaofeng/umi-plugin-app/commit/b16c81ce1a8512b3c56be03a05e9e8b94c590fc3))
+
+
+
 ## [0.4.23](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.22...v0.4.23) (2024-04-03)
 
 
