@@ -1,3 +1,12 @@
+## [0.4.25](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.24...v0.4.25) (2024-04-05)
+
+
+### Features
+
+* add useState hook and conditional useEffect in RouteComponent ([ea51cf3](https://github.com/limaofeng/umi-plugin-app/commit/ea51cf3517d590228fb6aaf74189d7513ebb7b1f))
+
+
+
 ## [0.4.24](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.23...v0.4.24) (2024-04-05)
 
 
