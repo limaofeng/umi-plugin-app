@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useAccess } from 'umi';
 import { useReactComponent } from '@asany/sunmao';
@@ -56,12 +56,23 @@ export default function RouteComponent({ ROUTEID: id, useRouteSelector, ...props
     id,
   });
   {{#isLoadingAuto}}
+  const [first, setFirst] = useState(true);
   const { loading, setLoading } = useLoading();
   useEffect(() => {
-    setTimeout(() => {
+    if (!first) {
+      return;
+    }
+    setFirst(false);
+    if(!loading) {
+      return;
+    }
+    const timer = setTimeout(() => {
       setLoading(false);
     }, 120);
-  }, []);
+    return () => {
+      clearTimeout(timer);
+    }
+  }, [loading]);
   {{/isLoadingAuto}}
   return <Component {...props} />;
 }
