@@ -60,8 +60,8 @@ export default function RouteComponent({ ROUTEID: id, useRouteSelector, ...props
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 150);
-  }, [loading]);
+    }, 120);
+  }, []);
   {{/isLoadingAuto}}
   return <Component {...props} />;
 }
