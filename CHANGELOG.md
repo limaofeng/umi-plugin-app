@@ -1,3 +1,12 @@
+## [0.4.26](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.25...v0.4.26) (2024-04-05)
+
+
+### Features
+
+* update dependencies in package.json ([c5a4622](https://github.com/limaofeng/umi-plugin-app/commit/c5a46226eb6b5489c0b52e6780e68abfb94689b9))
+
+
+
 ## [0.4.25](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.24...v0.4.25) (2024-04-05)
 
 
