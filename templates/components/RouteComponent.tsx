@@ -58,13 +58,14 @@ export default function RouteComponent({ ROUTEID: id, useRouteSelector, ...props
   {{#isLoadingAuto}}
   const [first, setFirst] = useState(true);
   const { loading, setLoading } = useLoading();
+  const definition = Component.getDefinition();
   useEffect(() => {
     if (!first) {
       return;
     }
     setFirst(false);
-    if(!loading) {
-      return;
+    if(definition?.disableAutoLoading) {
+      return; 
     }
     const timer = setTimeout(() => {
       setLoading(false);
