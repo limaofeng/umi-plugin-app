@@ -1,3 +1,12 @@
+## [0.4.28](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.27...v0.4.28) (2024-04-06)
+
+
+### Features
+
+* update import statement in index.ts ([6cea567](https://github.com/limaofeng/umi-plugin-app/commit/6cea567e0d3dc4ee549da221fba194a24476c782))
+
+
+
 ## [0.4.27](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.26...v0.4.27) (2024-04-06)
 
 
