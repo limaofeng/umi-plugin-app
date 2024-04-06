@@ -1,3 +1,12 @@
+## [0.4.27](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.26...v0.4.27) (2024-04-06)
+
+
+### Features
+
+* add 'key' field to modules in getApplication query ([6f1709a](https://github.com/limaofeng/umi-plugin-app/commit/6f1709aaa372f1b8c78a87c31b5a553c240efa7b))
+
+
+
 ## [0.4.26](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.25...v0.4.26) (2024-04-05)
 
 
