@@ -1,3 +1,12 @@
+## [0.4.29](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.28...v0.4.29) (2024-04-07)
+
+
+### Features
+
+* add redirect functionality to AppManager ([2acd2be](https://github.com/limaofeng/umi-plugin-app/commit/2acd2be0e2ae5d4903c965b9d59596f382f9b91d))
+
+
+
 ## [0.4.28](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.27...v0.4.28) (2024-04-06)
 
 
