@@ -1,4 +1,5 @@
 import React, { ComponentType, useCallback, useEffect, useReducer, useRef } from 'react';
+import { Navigate } from 'react-router-dom';
 
 import { EventEmitter } from 'events';
 
@@ -92,6 +93,10 @@ export class AppManager {
 
     if (route.parent && route.path == route.parent.path) {
       route.index = true;
+    }
+
+    if(!element && route.redirect) {
+      element = React.createElement(Navigate, { to: route.redirect, replace: true });
     }
 
     return { ...route, element };
