@@ -1,3 +1,12 @@
+## [0.4.32](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.31...v0.4.32) (2024-04-12)
+
+
+### Bug Fixes
+
+* bug in login functionality ([9321feb](https://github.com/limaofeng/umi-plugin-app/commit/9321feb09f532c3ec3d0034dfe157bbeab740660))
+
+
+
 ## [0.4.31](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.30...v0.4.31) (2024-04-12)
 
 
