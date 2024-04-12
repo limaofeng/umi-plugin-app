@@ -37,7 +37,7 @@ const renderAppWithOptionalProviders = (children: any) => {
   WrappedChildren = <IconProvider>{WrappedChildren}</IconProvider>;
   {{/icons}}
   {{#dnd}}
-  <DndProvider backend={HTML5Backend}>{WrappedChildren}</DndProvider>
+  WrappedChildren = <DndProvider backend={HTML5Backend}>{WrappedChildren}</DndProvider>
   {{/dnd}}
   {{#loading}}
   WrappedChildren = <LoadingProvider>{WrappedChildren}</LoadingProvider>;
