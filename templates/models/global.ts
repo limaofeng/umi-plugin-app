@@ -42,6 +42,7 @@ interface GlobalModelType {
   state: GlobalState;
   reducers: {
     saveCurrentApplication: Reducer<GlobalState>;
+    saveApplicationModule: Reducer<GlobalState>;
   };
   subscriptions: {
     setup: any;
@@ -55,12 +56,24 @@ const GlobalModel: GlobalModelType = {
     organization: undefined,
   },
   reducers: {
+    saveApplicationModule(state: any, { payload: { type, values } }: any) {
+      const { application } = state;
+      const module = application.modules.find((item: any) => item.type === type);
+      // 如果没有找到模块，则新增一个模块
+      if (!module) {
+        application.modules.push({ type, values });
+        return { ...state, application };
+      }
+      // 如果找到模块，则更新模块的值
+      module.values = { ...module.values, ...values };
+      return { ...state, application };
+    },
     saveCurrentApplication(state: any, { payload: app }: any) {
       return { ...state, application: app, organization: app.organization };
     },
   },
   subscriptions: {
-    async setup({ dispatch }) {
+    async setup({ dispatch }: any) {
       dispatch({ type: 'saveCurrentApplication', payload: currentApplication });
     },
   },
