@@ -1,3 +1,12 @@
+## [0.4.36](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.35...v0.4.36) (2024-07-30)
+
+
+### Features
+
+* add new hooks for retrieving application module information ([9591fb7](https://github.com/limaofeng/umi-plugin-app/commit/9591fb70317f2e3020842c04adf86f28688b740d))
+
+
+
 ## [0.4.35](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.34...v0.4.35) (2024-07-30)
 
 
