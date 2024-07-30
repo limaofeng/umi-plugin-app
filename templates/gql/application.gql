@@ -1,4 +1,4 @@
-query getApplication($id: ID!, $idType: ApplicationIdType = ID) {
+query getApplication($id: ID!, $idType: ApplicationIdType = CLIENT_ID) {
   app: application(id: $id, idType: $idType) {
     ...ApplicationInfo
     loginRoute {
@@ -20,8 +20,10 @@ query getApplication($id: ID!, $idType: ApplicationIdType = ID) {
     }
     modules {
       id
-      key
+      type
       name
+      description
+      values
     }
   }
 }

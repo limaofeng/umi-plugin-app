@@ -23,7 +23,7 @@ let extraRoutes: any[] = [];
 
 async function loadRoutes() {
   let appId = '{{id}}';
-  let fetchAppType = 'ID';
+  let fetchAppType = 'CLIENT_ID';
   // 获取当前请求的 domain
   const currentDomain = window.location.hostname;
   if (!appId) {
