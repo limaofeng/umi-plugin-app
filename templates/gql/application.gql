@@ -1,5 +1,5 @@
-query getApplication($id: ID!) {
-  app: application(id: $id) {
+query getApplication($id: ID!, $idTypee: ApplicationIdType = ID) {
+  app: application(id: $id, idTypee: $idTypee) {
     ...ApplicationInfo
     loginRoute {
       ...RouteParts
@@ -22,7 +22,6 @@ query getApplication($id: ID!) {
       id
       key
       name
-      configuration
     }
   }
 }

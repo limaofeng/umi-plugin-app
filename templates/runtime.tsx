@@ -22,12 +22,21 @@ const logging = process.env.NODE_ENV === 'development';
 let extraRoutes: any[] = [];
 
 async function loadRoutes() {
+  let appId = '{{id}}';
+  let fetchAppType = 'ID';
+  // 获取当前请求的 domain
+  const currentDomain = window.location.hostname;
+  if (!appId) {
+    appId = currentDomain;
+    fetchAppType = 'DOMAIN';
+  }
   const {
     data: { app },
   } = await apolloClient.query({
     query: GET_APPLICATION,
     variables: {
-      id: '{{id}}',
+      id: appId,
+      idType: fetchAppType,
     },
     fetchPolicy: 'no-cache',
   });

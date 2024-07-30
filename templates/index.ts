@@ -10,7 +10,7 @@ export { useLoading, useLoadingControls } from './contexts/LoadingContext';
 export const sunmao = new Sunmao();
 
 export const useAppClientId = function (): string {
-  return '{{id}}';
+  return useSelector((state: any) => state.global.application.clientId);
 };
 
 export const useApp = function (): Application {
