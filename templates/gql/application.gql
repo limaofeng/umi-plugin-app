@@ -23,7 +23,6 @@ query getApplication($id: ID!, $idType: ApplicationIdType = CLIENT_ID) {
       type
       name
       description
-      values
     }
   }
 }
@@ -45,6 +44,7 @@ subscription subscibeUpdateRoute {
 fragment ApplicationInfo on Application {
   id
   name
+  type
   logo
   enabled
   description
