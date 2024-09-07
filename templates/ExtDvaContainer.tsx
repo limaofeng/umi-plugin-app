@@ -17,7 +17,7 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 import { LoadingProvider } from './contexts/LoadingContext';
 {{/loading}}
 
-import { sunmao } from './index';
+import { APP_CONFIG, sunmao } from './index';
 import global from './models/global';
 
 const isDev = process.env.NODE_ENV === 'development';
@@ -72,7 +72,7 @@ function ExtDvaContainer(props: ExtDvaContainerProps) {
           const value = (window.APP_CONFIG as any)[key];
           if (typeof value === 'string' && value.startsWith('REPLACE_')) {
              // 从 process.env 中查找对应的环境变量
-            const envValue = process.env[key];
+            const envValue = APP_CONFIG[key];
             if (envValue) {
               // 如果环境变量存在，则替换
               (window.APP_CONFIG as any)[key] = envValue;
@@ -90,11 +90,10 @@ function ExtDvaContainer(props: ExtDvaContainerProps) {
         payload: {...window.APP_CONFIG},
       });
       for (const key in window.APP_CONFIG) {
-        if(!["APPID"].includes(key)) {
-          delete (window.APP_CONFIG as any)[key];
-          isDev && console.log(`Removed ${key} from window.APP_CONFIG`);
-        }
+        APP_CONFIG[key] = (window.APP_CONFIG as any)[key];
+        isDev && console.log(`Set ${key} to APP_CONFIG: ${(window.APP_CONFIG as any)[key]}`);
       }
+      delete (window as any).APP_CONFIG;
     }
   }, [store.current])
 
