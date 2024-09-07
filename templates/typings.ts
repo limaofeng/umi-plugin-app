@@ -128,3 +128,11 @@ export interface AuthComponentProps {
   route?: any;
   location?: any;
 }
+
+declare global {
+  interface Window {
+    APP_CONFIG: {
+      APPID: string;
+    };
+  }
+}

@@ -22,7 +22,7 @@ const logging = process.env.NODE_ENV === 'development';
 let extraRoutes: any[] = [];
 
 async function loadRoutes() {
-  let appId = '{{id}}';
+  let appId = '{{id}}' || window.APP_CONFIG.APPID;
   let fetchAppType = 'CLIENT_ID';
   // 获取当前请求的 domain
   const currentDomain = window.location.hostname;
