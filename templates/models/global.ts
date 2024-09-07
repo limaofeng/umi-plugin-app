@@ -1,5 +1,5 @@
 import { Reducer } from '@umijs/max';
-import { IRoute } from '../typings';
+import { Appconfig, IRoute } from '../typings';
 
 export interface Dingtalk {
   corpId: string;
@@ -29,6 +29,7 @@ interface Organization {
 export interface GlobalState {
   application?: Application;
   organization?: Organization;
+  appconfig: Appconfig;
 }
 
 let currentApplication: any;
@@ -41,6 +42,7 @@ interface GlobalModelType {
   namespace: 'global';
   state: GlobalState;
   reducers: {
+    setAppConfig: Reducer<GlobalState>;
     saveCurrentApplication: Reducer<GlobalState>;
     saveApplicationModule: Reducer<GlobalState>;
   };
@@ -54,8 +56,22 @@ const GlobalModel: GlobalModelType = {
   state: {
     application: undefined,
     organization: undefined,
+    appconfig: {
+      APPID: '',
+      GRAPHQL_URL: '',
+      GRAPHQL_WS_URL: '',
+      WEBSITE_URL: '',
+      MOBILE_URL: '',
+      SHORT_DOMAIN_NAME: '',
+      STORAGE_URL: '',
+      OPEN_IM_API_URL: '',
+      OPEN_IM_WS_URL: '',
+    },
   },
   reducers: {
+    setAppConfig(state: any, { payload }: any) {
+      return { ...state, appconfig: payload };
+    },
     saveApplicationModule(state: any, { payload: { type, values } }: any) {
       const { application } = state;
       const module = application.modules.find((item: any) => item.type === type);

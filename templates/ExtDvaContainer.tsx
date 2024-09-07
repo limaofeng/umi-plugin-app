@@ -20,6 +20,8 @@ import { LoadingProvider } from './contexts/LoadingContext';
 import { sunmao } from './index';
 import global from './models/global';
 
+const isDev = process.env.NODE_ENV === 'development';
+
 interface ExtDvaContainerProps {
   children: any;
   client: any;
@@ -58,6 +60,43 @@ function ExtDvaContainer(props: ExtDvaContainerProps) {
   useEffect(() => {
     sunmao.addLibrary(...Object.keys(props.libraries).map((key) => props.libraries[key]));
   }, [])
+
+  useEffect(() => {
+    if(!store.current) {
+      return;
+    }
+    // 从 window.APP_CONFIG 中查找需要替换的
+    if (window.APP_CONFIG) {
+      for (const key in window.APP_CONFIG) {
+        if (window.APP_CONFIG.hasOwnProperty(key)) {
+          const value = (window.APP_CONFIG as any)[key];
+          if (typeof value === 'string' && value.startsWith('REPLACE_')) {
+             // 从 process.env 中查找对应的环境变量
+            const envValue = process.env[key];
+            if (envValue) {
+              // 如果环境变量存在，则替换
+              (window.APP_CONFIG as any)[key] = envValue;
+              isDev && console.log(`Replaced ${key} with process.env.${key}: ${envValue}`);
+            } else {
+              (window.APP_CONFIG as any)[key] = '';
+              isDev && console.log(`No corresponding environment variable for ${key}`);
+            }
+          }
+        }
+      }
+      // 通过 dispatch 触发 'global/updateData' reducer，更新 global 内的数据
+      store.current.dispatch({
+        type: 'global/setAppConfig',
+        payload: {...window.APP_CONFIG},
+      });
+      for (const key in window.APP_CONFIG) {
+        if(!["APPID"].includes(key)) {
+          delete (window.APP_CONFIG as any)[key];
+          isDev && console.log(`Removed ${key} from window.APP_CONFIG`);
+        }
+      }
+    }
+  }, [store.current])
 
   return (
     <PersistGate persistor={store.current.persistor} loading={<div>加载组件</div>}>
