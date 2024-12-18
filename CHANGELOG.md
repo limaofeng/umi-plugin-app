@@ -1,3 +1,12 @@
+## [0.5.5](https://github.com/limaofeng/umi-plugin-app/compare/v0.5.4...v0.5.5) (2024-12-18)
+
+
+### Features
+
+* implement Redirect component and update routing logic in AppManager ([c8b821a](https://github.com/limaofeng/umi-plugin-app/commit/c8b821a58692cc3b6d6247d37686dbf48ffbf745))
+
+
+
 ## [0.5.4](https://github.com/limaofeng/umi-plugin-app/compare/v0.5.3...v0.5.4) (2024-09-07)
 
 
