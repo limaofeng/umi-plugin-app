@@ -1,5 +1,4 @@
 import React, { ComponentType, useCallback, useEffect, useReducer, useRef } from 'react';
-import { Navigate } from 'react-router-dom';
 
 import { EventEmitter } from 'events';
 
@@ -7,7 +6,7 @@ import isEqual from 'lodash/isEqual';
 
 import { EqualityFn, IRoute, Selector, SubscribeCallback, UseRouteSelectorFunc } from './typings';
 import * as utils from './utils';
-import RouteComponent, { AuthComponent } from './components/RouteComponent';
+import { RouteComponent, Redirect, AuthComponent } from './components';
 import { Application } from './models/global';
 
 const EVENT_ROUTE_RELOAD = 'EVENT_ROUTE_RELOAD';
@@ -95,8 +94,8 @@ export class AppManager {
       route.index = true;
     }
 
-    if(!element && route.redirect) {
-      element = React.createElement(Navigate, { to: route.redirect, replace: true });
+    if (!element && route.redirect) {
+      element = <Redirect to={route.redirect} replace={true} />;
     }
 
     return { ...route, element };
@@ -144,12 +143,12 @@ export class AppManager {
       this.cache.set(
         CACHE_AUTHCOMPONENT_KEY,
         (authorized = (props: any) => (
-          <AuthComponent
-            ROUTEID={id}
-            useRouteSelector={this.useRouteSelector}
-            loginUrl={loginUrl}
-            {...props}
-          />
+          <AuthComponent 
+              ROUTEID={id}
+              useRouteSelector={this.useRouteSelector}
+              loginUrl={loginUrl}
+              {...props}
+              />
         ))
       );
     }
