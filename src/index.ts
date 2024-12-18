@@ -56,6 +56,7 @@ export default function (api: IApi) {
     'gql/component.gql',
     'components/index.ts',
     'components/RouteComponent.tsx',
+    'components/Redirect.tsx',
     'utils/index.ts',
     'AppManager.tsx',
     'index.ts',
