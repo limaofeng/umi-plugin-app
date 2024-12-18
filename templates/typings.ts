@@ -128,3 +128,21 @@ export interface AuthComponentProps {
   route?: any;
   location?: any;
 }
+
+export type Appconfig = {
+  APPID: string;
+  GRAPHQL_URL: string;
+  GRAPHQL_WS_URL: string;
+  WEBSITE_URL: string;
+  MOBILE_URL: string;
+  SHORT_DOMAIN_NAME: string;
+  STORAGE_URL: string;
+  OPEN_IM_API_URL: string;
+  OPEN_IM_WS_URL: string;
+};
+
+declare global {
+  interface Window {
+    APP_CONFIG: Appconfig;
+  }
+}

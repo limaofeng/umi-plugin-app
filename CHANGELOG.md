@@ -1,3 +1,24 @@
+## [0.5.4](https://github.com/limaofeng/umi-plugin-app/compare/v0.5.3...v0.5.4) (2024-09-07)
+
+
+
+## [0.5.3](https://github.com/limaofeng/umi-plugin-app/compare/v0.5.2...v0.5.3) (2024-09-07)
+
+
+
+## [0.5.2](https://github.com/limaofeng/umi-plugin-app/compare/v0.5.1...v0.5.2) (2024-09-07)
+
+
+
+## [0.5.1](https://github.com/limaofeng/umi-plugin-app/compare/v0.5.0...v0.5.1) (2024-08-27)
+
+
+### Features
+
+* 调整 app 获取数据的字段 ([cf1a70d](https://github.com/limaofeng/umi-plugin-app/commit/cf1a70d3f85002b8c4ed7e1147e0ebb87e6019af))
+
+
+
 # [0.5.0](https://github.com/limaofeng/umi-plugin-app/compare/v0.4.36...v0.5.0) (2024-08-20)
 
 

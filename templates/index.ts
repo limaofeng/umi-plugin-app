@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Sunmao } from '@asany/sunmao';
 
 import type { Application, ApplicationModule } from '@/types';
+import { Appconfig } from './typings';
 
 export { default as AppManager, useRouteSelector } from './AppManager';
 export { default as RouteComponent } from './components/RouteComponent';
@@ -48,4 +49,18 @@ export const useAppModule = function (type: string): [
  */
 export const useApp = function (): Application {
   return useSelector((state: any) => state.global.application);
+};
+
+export const APP_CONFIG: Appconfig & {
+  [key: string]: any;
+} = {
+  APPID: process.env.APPID!,
+  GRAPHQL_URL: process.env.GRAPHQL_URL!,
+  GRAPHQL_WS_URL: process.env.GRAPHQL_WS_URL!,
+  STORAGE_URL: process.env.STORAGE_URL!,
+  WEBSITE_URL: process.env.WEBSITE_URL!,
+  MOBILE_URL: process.env.MOBILE_URL!,
+  SHORT_DOMAIN_NAME: process.env.SHORT_DOMAIN_NAME!,
+  OPEN_IM_API_URL: process.env.OPEN_IM_API_URL!,
+  OPEN_IM_WS_URL: process.env.OPEN_IM_WS_URL!,
 };
