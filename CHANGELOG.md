@@ -1,3 +1,12 @@
+## [0.5.6](https://github.com/limaofeng/umi-plugin-app/compare/v0.5.5...v0.5.6) (2024-12-18)
+
+
+### Features
+
+* add Redirect component to the index file ([7679db5](https://github.com/limaofeng/umi-plugin-app/commit/7679db52eaabffdb09bc5f78a7c76b3359a12dce))
+
+
+
 ## [0.5.5](https://github.com/limaofeng/umi-plugin-app/compare/v0.5.4...v0.5.5) (2024-12-18)
 
 
