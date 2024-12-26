@@ -47,6 +47,7 @@ fragment ApplicationInfo on Application {
   type
   logo
   enabled
+  title
   description
   clientId
 }
