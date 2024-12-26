@@ -1,3 +1,12 @@
+## [0.5.7](https://github.com/limaofeng/umi-plugin-app/compare/v0.5.6...v0.5.7) (2024-12-26)
+
+
+### Features
+
+* add title field to ApplicationInfo fragment in GraphQL schema ([17cf66a](https://github.com/limaofeng/umi-plugin-app/commit/17cf66a908c90b3173eece31e40a723d97dca3ef))
+
+
+
 ## [0.5.6](https://github.com/limaofeng/umi-plugin-app/compare/v0.5.5...v0.5.6) (2024-12-18)
 
 
